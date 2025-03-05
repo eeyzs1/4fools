@@ -1,0 +1,67 @@
+﻿KEYS,en,chn
+K_IMPERIAL_COMMANDO,Imperial commando,帝国特种兵
+K_ALLIANCE_DIPLOMAT,Alliance diplomat,联盟外交官
+K_NEUTRAL_EXPLORER,Neutral explorer,中立探险家
+K_ALIEN_SURVIVOR,Alien Survivor,异族幸存者
+,,
+K_COMMANDO_INTRO,"Imperial Assault Soldier, 4th Generation Dirty Blade, Pension, fought and made contributions from the hometown guard all the way to joining the imperial army. Due to its exceptional combat capabilities, it became the captain of the Imperial Secret Special Forces Shadows, specifically responsible for cleaning up those who were ""detrimental"" to the Empire. As he is nearing retirement, his greatest wish is to start a leisurely life with a pension",帝国突击兵， 4代脏刃， 潘森， 从故乡的警卫队一路战斗立功到帝都参军。因为其拥有超强的作战能力， 成为帝国的隐秘特殊部队隐影的队长， 专门负责清理对帝国“不利”的人。目前临近退休， 最大的愿望就是能领着养老金开始悠闲的生活
+K_DIPLOMAT_INTRO,"Alliance diplomat, Joy White, the successor of the first generation of interstellar immigrants and the second daughter of the White family, received elite education from a young age and demonstrated outstanding talents and abilities in adulthood. As a result, she participated in diplomatic work and became a diplomat of the interstellar alliance through her own efforts. Due to the dislike of people judging her based on her family background, self-introduction is generally only called Joy. Now she shoulders the task of conducting a new round of diplomatic consultations and easing relations with the empire",联盟外交官， 白悦然， 初代星际移民的后继者， 白家次女， 从小接受精英教育， 在成年后展示出了出色的才智和能力， 因而参与进了外交工作， 凭借自身的努力成为了星际联盟的外交官。由于不喜欢人们以她的家世评价她， 所以自我介绍一般只说叫悦然。现在她肩负着与帝国进行新一轮的外交磋商和缓和关系的任务
+K_EXPLORER_INTRO,"Neutral explorer, excellent engineer, Interstellar hero, Sage, piloting an antique ship. As a child, she was kidnapped by interstellar slave traders while exploring Little St. James Island and accidentally rescued by Interstellar Cyber Mechanical Heroes. She studied Cyber Mechanical Technology and combat skills under the guidance of heroes. Rumors have it that lost ancient technology can alleviate the master's cybermechanical pain, so now she wants to retaliate against those slave traders and explore lost ancient technology. To raise funds to repair and improve her spaceship, he went to Planet PeaceRealm",中立探险家， 优异的工程师， 星际侠客， 莎姬， 驾驶老古董号， 小时候的她在探索小圣詹姆斯岛时被星际奴隶贩子绑架， 然后意外地被星际赛博机械侠客们所救， 她拜侠客们为师并学习了赛博机械技术和战斗技巧。传言失落技术能缓解师傅们的赛博机械痛苦， 所以现在， 她想报复那些奴隶贩子并且探寻失落的古代技术。为了筹措资金修缮提升自己的飞船， 所以前往和界星
+K_SURVIVOR_INTRO,"Survivors of the alien race, Prophet, Luna, and the aliens who have lost their civilization have been constantly wandering around for years. As a prophet of the race, Luna was awakened to the ability to prophesy in her childhood. She grew up listening to the story of Planet WisdomScript from a young age and witnessed the hardships of the tribe's survival on the Planet Shelter. She is currently traveling among the planets, hoping to find opportunities to improve the situation of the tribe and increase her ability to lead the tribe in the future", 异族幸存者， 先知， 露娜， 已经失落文明的异族常年颠沛流离， 作为部族先知， 露娜因在幼年觉醒了预言的能力而被当作预备先知。她从小听着智翰星的故事长大， 目睹了族群在庇护星生存的困苦。目前在星际间游历， 以期望寻找改善族人处境的契机和增加自身未来领导一族的能力
+K_IC_INTRO,"The protagonist of this game, has an extra points of attribute, Ability to decelerate greatly",本作主角， 拥有额外属性点， 异能大减速
+K_AD_INTRO,"One of the important characters in this game, equipped with a large number of weapons due to extreme wealth, Ability is inviolable",本作重要角色之一， 因为极度富有所以装备有大量武器， 异能不可侵犯
+K_NE_INTRO,"One of the important characters in this game, skilled in combat art and warship maintenance, Ability Rapid Repair (affected by hp recovery)",本作重要角色之一， 精擅战斗艺术与战舰维修， 异能极速维修（受生命恢复影响）
+K_AS_INTRO,"One of the important characters in this game, possessing high rationality and combat intuition, Ability divine enlightenment (influenced by sanity)",本作重要角色之一， 拥有较高的理智与战斗直觉， 异能神启（受理智影响）
+K_M_INTRO,"A widow with a business acumen appeared on the battlefield for some unknown reason, Ability cornucopia (Obtain bounty periodically based on Extra bounty)",一位富有经商头脑的未亡人， 不知为何出现在了战场， 异能聚宝盆（按额外赏金周期性获得赏金）
+K_RC_INTRO,"The research dog, driven crazy, plans to join the battlefield with the intention of destorying everything, Ability is Cataclysm(Deal damage to the enemy at the cost of hp by half of max hp)",被逼疯的科研狗， 带着天地同寿的打算加入战场， 异能毁天灭地（以一半最大生命的生命为代价对敌人造成伤害）
+,,
+N_IC,Pension,潘森
+N_AD,Joy,悦然
+N_NE,Sage,莎姬
+N_AS,Luna,露娜
+,,
+N_XZ,Xi.Zhihong,戏志宏
+N_SM,Smart Meow,智喵
+N_CR,Conscription robot,征兵机器人
+N_MO,Military official,军官
+N_AO,All the officers,众军官们
+N_ACM,A certain mercenary,某佣兵
+N_MS,Mercenaries,佣兵们
+N_PS,Prosecutor,公诉人
+N_CJ,Chief Judge,审判长
+N_DLY,Duan.LinYin,段林吟
+N_AT,Alec  Tyr,泰尔.亚力克
+N_CT,Catherine Thunderstrike,雷霆. 凯特琳
+N_RC,Robert Cybercore,机核.罗伯特
+N_JW,Jason Wood,伍德.杰森
+N_JF,John Fortress,约翰.坚盾
+N_CMRN,Cameron,卡梅伦
+N_ADS,Audiences,观众们
+N_GC,Giant crocodile,巨鳄
+N_ACS,A certain soldier,某士兵
+N_SS,Soldiers,士兵们
+N_ACD,A certain drinker,某酒客
+N_CD,Cyndriel,璇玑
+N_FW,Forestwise,森睿
+N_VI,Vitaliron,生铁
+N_WN,Wisdom Nexus,智枢
+N_E, Everybody,众人
+N_ZANDER,Zander,赞德
+N_NV,Navigator,领航员
+N_LO,Liaison Officer,联络员
+N_EMP,Emperor,帝皇
+N_HK,Huck,哈克
+N_ZTB,Zhao.Tiebi,赵铁壁
+N_ZD,Zoo.Don,左敦
+N_WF,Wang.Femh,王风
+N_ZJY,Zhang.Jingya,张静雅
+N_HSC,Hidden Shadow Crowd,隐影众
+N_TRP,The remaining people,余下众人
+N_JX,Ju.Xifeng,鞠息烽
+N_WE,Wang.Erpao,王二炮
+N_IV,Ivan,伊万
+N_ZM,Zhang.Mazi,张麻子
+N_LZ,Li.Zhanye,李战野
+N_ZTZ,"Zhao,Tiezhu",赵铁柱
+N_M,Melinda,梅琳达
+N_ZL,Zoo.Lan,左兰

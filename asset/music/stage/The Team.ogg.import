@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7b2ddi4g1px3"
+path="res://.godot/imported/The Team.ogg-6edfdaf55f7601e961195d30732a3e7b.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/The Team.ogg"
+dest_files=["res://.godot/imported/The Team.ogg-6edfdaf55f7601e961195d30732a3e7b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

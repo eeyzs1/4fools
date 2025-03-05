@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dlt3u7360y6tv"
+path="res://.godot/imported/Red Clouds.ogg-1cfeaa94a88808ae402e8944a4db8cdc.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Red Clouds.ogg"
+dest_files=["res://.godot/imported/Red Clouds.ogg-1cfeaa94a88808ae402e8944a4db8cdc.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

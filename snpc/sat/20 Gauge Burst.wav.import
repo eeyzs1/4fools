@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2tmvg0b4po30"
+path="res://.godot/imported/20 Gauge Burst.wav-e4e603ebb9d9dc2e1f6dc149f91e9841.sample"
+
+[deps]
+
+source_file="res://snpc/sat/20 Gauge Burst.wav"
+dest_files=["res://.godot/imported/20 Gauge Burst.wav-e4e603ebb9d9dc2e1f6dc149f91e9841.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

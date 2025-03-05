@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://12v1sqfve30l"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_dkhhi"]
+[ext_resource type="Texture2D" uid="uid://dr1qpwnxxeikh" path="res://asset/weapon/explosion/3.png" id="2_lbg4u"]
+
+[sub_resource type="Curve" id="Curve_ut5fs"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.752577, 1), 0.0, 0.0, 0, 0, Vector2(0.993127, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_l1y5x"]
+curve = SubResource("Curve_ut5fs")
+
+[sub_resource type="Curve" id="Curve_mpgbv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cidpl"]
+curve = SubResource("Curve_mpgbv")
+
+[sub_resource type="Curve" id="Curve_gxokb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_ccad8"]
+curve = SubResource("Curve_gxokb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ubgt"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+angle_min = 120.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_cidpl")
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_ccad8")
+alpha_curve = SubResource("CurveTexture_l1y5x")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuit5"]
+resource_local_to_scene = true
+size = Vector2(16, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x515e"]
+resource_local_to_scene = true
+radius = 0.01
+
+[node name="Bullet" type="Area2D" groups=["bullets"]]
+position = Vector2(216, 152)
+collision_layer = 0
+collision_mask = 2147483659
+script = ExtResource("1_dkhhi")
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_6ubgt")
+texture = ExtResource("2_lbg4u")
+one_shot = true
+explosiveness = 1.0
+
+[node name="Img" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tuit5")
+
+[node name="ExplosionDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+
+[node name="explosion" type="CollisionShape2D" parent="ExplosionDetection"]
+shape = SubResource("CircleShape2D_x515e")
+debug_color = Color(0.6, 0.541176, 0.00392157, 0.419608)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="ExplosionDetection" to="." method="_on_explosion_detection_area_entered"]
+[connection signal="area_exited" from="ExplosionDetection" to="." method="_on_explosion_detection_area_exited"]
+[connection signal="body_entered" from="ExplosionDetection" to="." method="_on_explosion_detection_body_entered"]
+[connection signal="body_exited" from="ExplosionDetection" to="." method="_on_explosion_detection_body_exited"]

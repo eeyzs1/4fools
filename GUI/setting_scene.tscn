@@ -1,0 +1,363 @@
+[gd_scene load_steps=13 format=3 uid="uid://bsekrnkcfu5bv"]
+
+[ext_resource type="Script" path="res://GUI/setting_scene.gd" id="1_swivv"]
+[ext_resource type="Texture2D" uid="uid://b76dcigcffsjs" path="res://asset/bgim/Stairs 2.png" id="2_0ska8"]
+[ext_resource type="Theme" uid="uid://ofm1t2m5l3qq" path="res://GUI/slider.tres" id="3_s63qg"]
+[ext_resource type="PackedScene" uid="uid://ld6bdl0q1lvi" path="res://GUI/audio_button.tscn" id="4_nsqep"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eofgd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbkyp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfhd8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqrg8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmruw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_157m7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bac5x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pbqr"]
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_swivv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0ska8")
+expand_mode = 1
+
+[node name="TabContainer" type="TabContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="K_GN_CONTROL" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+tab_alignment = 1
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/K_GN_CONTROL"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Generalbox" type="VBoxContainer" parent="TabContainer/K_GN_CONTROL/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="CheckButtonContainer" type="HBoxContainer" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AutoAtk" type="CheckButton" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/CheckButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_eofgd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gbkyp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jfhd8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lqrg8")
+text = "K_AUTO_ATK"
+
+[node name="DisDmg" type="CheckButton" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/CheckButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bmruw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_157m7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bac5x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3pbqr")
+text = "K_DIS_DMG"
+
+[node name="ESContainer" type="HBoxContainer" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+
+[node name="ESLabel" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/ESContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ES"
+
+[node name="ESLabelValue" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/ESContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ES"
+
+[node name="EnemySpeed" type="HSlider" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+theme = ExtResource("3_s63qg")
+min_value = 1.0
+max_value = 10.0
+value = 5.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="EDContainer" type="HBoxContainer" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+
+[node name="EDLabel" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/EDContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ED"
+
+[node name="EDLabelValue" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/EDContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ES"
+
+[node name="EnemyDmg" type="HSlider" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+theme = ExtResource("3_s63qg")
+min_value = 1.0
+max_value = 10.0
+value = 3.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="ESPContainer" type="HBoxContainer" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+
+[node name="ESPLabel" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/ESPContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ESP"
+
+[node name="ESPLabelValue" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/ESPContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ES"
+
+[node name="EnemySP" type="HSlider" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+theme = ExtResource("3_s63qg")
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="EGEPContainer" type="HBoxContainer" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+
+[node name="EGEPLabel" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/EGEPContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_EGEP"
+
+[node name="EGEPLabelValue" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/EGEPContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ES"
+
+[node name="EGEP" type="HSlider" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+theme = ExtResource("3_s63qg")
+min_value = 1.0
+max_value = 10.0
+value = 2.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="MEAContainer" type="HBoxContainer" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+
+[node name="MEALabel" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/MEAContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_MEA"
+
+[node name="MEALabelValue" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/MEAContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ES"
+
+[node name="MEA" type="HSlider" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+theme = ExtResource("3_s63qg")
+min_value = 1.0
+value = 20.0
+tick_count = 100
+ticks_on_borders = true
+
+[node name="MEXPGContainer" type="HBoxContainer" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+
+[node name="MEXPGLabel" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/MEXPGContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_MEXP_GROWTH"
+
+[node name="MEXPGValue" type="Label" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/MEXPGContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ES"
+
+[node name="MEXPG" type="HSlider" parent="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox"]
+layout_mode = 2
+theme = ExtResource("3_s63qg")
+min_value = 1.0
+max_value = 3.0
+step = 0.1
+value = 1.0
+tick_count = 21
+ticks_on_borders = true
+
+[node name="K_GM_CONTROL" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ActionList" type="VBoxContainer" parent="TabContainer/K_GM_CONTROL"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 10.0
+offset_right = 512.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+
+[node name="K_VA_CTRL" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Videobox" type="VBoxContainer" parent="TabContainer/K_VA_CTRL"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = 23.0
+offset_right = -49.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+
+[node name="HSplitContainer" type="HSplitContainer" parent="TabContainer/K_VA_CTRL/Videobox"]
+layout_mode = 2
+split_offset = 20
+
+[node name="WindowModes" type="Label" parent="TabContainer/K_VA_CTRL/Videobox/HSplitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "K_DISPLAY_MODE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WindowModeOps" type="OptionButton" parent="TabContainer/K_VA_CTRL/Videobox/HSplitContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="TabContainer/K_VA_CTRL/Videobox"]
+layout_mode = 2
+split_offset = 20
+
+[node name="Resolutions" type="Label" parent="TabContainer/K_VA_CTRL/Videobox/HSplitContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "K_WD_SIZE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResolutionsOps" type="OptionButton" parent="TabContainer/K_VA_CTRL/Videobox/HSplitContainer2"]
+layout_mode = 2
+
+[node name="Audiobox" type="VBoxContainer" parent="TabContainer/K_VA_CTRL"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 137.0
+offset_right = 598.0
+offset_bottom = 252.0
+theme_override_constants/separation = 12
+
+[node name="MusicContainer" type="HBoxContainer" parent="TabContainer/K_VA_CTRL/Audiobox"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="TabContainer/K_VA_CTRL/Audiobox/MusicContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_MUSIC"
+
+[node name="MusicLabelValue" type="Label" parent="TabContainer/K_VA_CTRL/Audiobox/MusicContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="MusicVolume" type="HSlider" parent="TabContainer/K_VA_CTRL/Audiobox"]
+layout_mode = 2
+theme = ExtResource("3_s63qg")
+max_value = 15.0
+value = 1.0
+tick_count = 16
+ticks_on_borders = true
+
+[node name="SoundContainer" type="HBoxContainer" parent="TabContainer/K_VA_CTRL/Audiobox"]
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="TabContainer/K_VA_CTRL/Audiobox/SoundContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_SOUND"
+
+[node name="SoundLabelValue" type="Label" parent="TabContainer/K_VA_CTRL/Audiobox/SoundContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="SoundVolume" type="HSlider" parent="TabContainer/K_VA_CTRL/Audiobox"]
+layout_mode = 2
+theme = ExtResource("3_s63qg")
+max_value = 15.0
+value = 1.0
+tick_count = 16
+ticks_on_borders = true
+
+[node name="BackButton" parent="." instance=ExtResource("4_nsqep")]
+offset_left = 288.0
+offset_top = 314.0
+offset_right = 355.0
+offset_bottom = 345.0
+theme_override_font_sizes/font_size = 16
+text = "K_BACK"
+
+[node name="ResetButton" parent="." instance=ExtResource("4_nsqep")]
+offset_left = 133.0
+offset_top = 314.0
+offset_right = 207.0
+offset_bottom = 345.0
+theme_override_font_sizes/font_size = 16
+text = "K_RESET"
+
+[connection signal="toggled" from="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/CheckButtonContainer/AutoAtk" to="." method="_on_auto_atk_toggled"]
+[connection signal="toggled" from="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/CheckButtonContainer/DisDmg" to="." method="_on_dis_dmg_toggled"]
+[connection signal="value_changed" from="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/EnemySpeed" to="." method="_on_enemy_speed_value_changed"]
+[connection signal="value_changed" from="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/EnemyDmg" to="." method="_on_enemy_dmg_value_changed"]
+[connection signal="value_changed" from="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/EnemySP" to="." method="_on_enemy_sp_value_changed"]
+[connection signal="value_changed" from="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/EGEP" to="." method="_on_egep_value_changed"]
+[connection signal="value_changed" from="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/MEA" to="." method="_on_mea_value_changed"]
+[connection signal="value_changed" from="TabContainer/K_GN_CONTROL/MarginContainer/Generalbox/MEXPG" to="." method="_on_mexpg_value_changed"]
+[connection signal="value_changed" from="TabContainer/K_VA_CTRL/Audiobox/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/K_VA_CTRL/Audiobox/SoundVolume" to="." method="_on_sound_volume_value_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]

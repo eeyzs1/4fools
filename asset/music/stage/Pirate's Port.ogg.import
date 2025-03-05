@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bm8ua573vr3g7"
+path="res://.godot/imported/Pirate's Port.ogg-e420300ff90751340c56286a7fd34fd1.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Pirate's Port.ogg"
+dest_files=["res://.godot/imported/Pirate's Port.ogg-e420300ff90751340c56286a7fd34fd1.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

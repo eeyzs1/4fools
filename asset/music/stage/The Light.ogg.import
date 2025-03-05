@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bgdxcootye4gf"
+path="res://.godot/imported/The Light.ogg-29fa4a73ad772e7b825b3a1ecc322368.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/The Light.ogg"
+dest_files=["res://.godot/imported/The Light.ogg-29fa4a73ad772e7b825b3a1ecc322368.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

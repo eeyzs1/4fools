@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://246saju8brt0"
+path="res://.godot/imported/Banners Up High.ogg-98c01d8444a499a846614952ed2d97d4.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Banners Up High.ogg"
+dest_files=["res://.godot/imported/Banners Up High.ogg-98c01d8444a499a846614952ed2d97d4.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

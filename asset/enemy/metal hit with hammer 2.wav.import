@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfa00kw1wa3pi"
+path="res://.godot/imported/metal hit with hammer 2.wav-c1b568c9e21537bcc230d4af1a3c69c1.sample"
+
+[deps]
+
+source_file="res://asset/enemy/metal hit with hammer 2.wav"
+dest_files=["res://.godot/imported/metal hit with hammer 2.wav-c1b568c9e21537bcc230d4af1a3c69c1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

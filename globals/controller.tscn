@@ -1,0 +1,56 @@
+[gd_scene load_steps=16 format=3 uid="uid://oy2ddkys2rou"]
+
+[ext_resource type="PackedScene" uid="uid://b1kcepm4yd0oa" path="res://GUI/HUD.tscn" id="1_u6w7j"]
+[ext_resource type="Script" path="res://globals/controller.gd" id="1_wxxxr"]
+[ext_resource type="AudioStream" uid="uid://bkbqrxsgsjekj" path="res://asset/sound/focus.wav" id="2_8sqgq"]
+[ext_resource type="AudioStream" uid="uid://cypytevtsi6yj" path="res://asset/music/stage/Abandoned Ship.ogg" id="2_q25pk"]
+[ext_resource type="AudioStream" uid="uid://usm7jqjn3s2" path="res://asset/sound/click.wav" id="3_skpr3"]
+[ext_resource type="PackedScene" uid="uid://dmck6tg1xpefh" path="res://GUI/summary.tscn" id="4_b7a1x"]
+[ext_resource type="PackedScene" uid="uid://cwhbhwpavljfl" path="res://GUI/market.tscn" id="4_itmkb"]
+[ext_resource type="PackedScene" uid="uid://dsm4bk65vk7x1" path="res://player/player.tscn" id="5_cc7xl"]
+[ext_resource type="PackedScene" uid="uid://bd3hq4pcxtju6" path="res://GUI/lvup.tscn" id="5_rtblo"]
+[ext_resource type="PackedScene" uid="uid://ccqs7mmj80mpr" path="res://GUI/pause.tscn" id="5_rtl5a"]
+[ext_resource type="PackedScene" uid="uid://chqmqbcrv2pit" path="res://GUI/load_save.tscn" id="6_i0b3v"]
+[ext_resource type="PackedScene" uid="uid://bsekrnkcfu5bv" path="res://GUI/setting_scene.tscn" id="7_lrv57"]
+[ext_resource type="PackedScene" uid="uid://bhpkvdpffckbg" path="res://GUI/stage.tscn" id="8_dw3el"]
+[ext_resource type="PackedScene" uid="uid://dgebfvk8j3r7q" path="res://battle_field.tscn" id="9_fgxwv"]
+[ext_resource type="PackedScene" uid="uid://c0asabyevo1po" path="res://enemy/enemy_manager.tscn" id="10_i26gj"]
+
+[node name="Controller" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_wxxxr")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q25pk")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[node name="UIFocusSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8sqgq")
+
+[node name="UIClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_skpr3")
+
+[node name="Settings" parent="." instance=ExtResource("7_lrv57")]
+
+[node name="Summary" parent="." instance=ExtResource("4_b7a1x")]
+
+[node name="HUD" parent="." instance=ExtResource("1_u6w7j")]
+
+[node name="Market" parent="." instance=ExtResource("4_itmkb")]
+
+[node name="lvup" parent="." instance=ExtResource("5_rtblo")]
+
+[node name="Pause" parent="." instance=ExtResource("5_rtl5a")]
+
+[node name="LoadSave" parent="." instance=ExtResource("6_i0b3v")]
+
+[node name="Stage" parent="." instance=ExtResource("8_dw3el")]
+
+[node name="BattleField" parent="." instance=ExtResource("9_fgxwv")]
+
+[node name="Player" parent="." instance=ExtResource("5_cc7xl")]
+position = Vector2(172, 128)
+
+[node name="Enemy_manager" parent="." instance=ExtResource("10_i26gj")]
+process_mode = 1

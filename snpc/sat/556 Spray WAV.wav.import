@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbkr1mcu8621l"
+path="res://.godot/imported/556 Spray WAV.wav-fef4f19873f56df0590483d683e96a5a.sample"
+
+[deps]
+
+source_file="res://snpc/sat/556 Spray WAV.wav"
+dest_files=["res://.godot/imported/556 Spray WAV.wav-fef4f19873f56df0590483d683e96a5a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

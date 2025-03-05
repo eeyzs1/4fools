@@ -1,0 +1,164 @@
+[gd_scene load_steps=4 format=3 uid="uid://chqmqbcrv2pit"]
+
+[ext_resource type="Script" path="res://GUI/load_save.gd" id="1_p0l4u"]
+[ext_resource type="Texture2D" uid="uid://b6vu3b3cvtfjb" path="res://asset/bgim/Temple_1.png" id="2_lgey8"]
+[ext_resource type="PackedScene" uid="uid://ld6bdl0q1lvi" path="res://GUI/audio_button.tscn" id="3_mm7vj"]
+
+[node name="LoadSave" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_p0l4u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lgey8")
+expand_mode = 2
+
+[node name="ButtonPanel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 70.0
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="SideVBox" type="VBoxContainer" parent="ButtonPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -85.0
+offset_right = 24.5
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="QuickSaveGameButton" parent="ButtonPanel/SideVBox" instance=ExtResource("3_mm7vj")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_Q_SAVE"
+
+[node name="QuickLoadGameButton" parent="ButtonPanel/SideVBox" instance=ExtResource("3_mm7vj")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_Q_LOAD"
+
+[node name="SaveGameButton" parent="ButtonPanel/SideVBox" instance=ExtResource("3_mm7vj")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_SAVE"
+
+[node name="LoadGameButton" parent="ButtonPanel/SideVBox" instance=ExtResource("3_mm7vj")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_LOAD"
+
+[node name="NewRecordButton" parent="ButtonPanel/SideVBox" instance=ExtResource("3_mm7vj")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_NEW"
+
+[node name="DeleteRecordButton" parent="ButtonPanel/SideVBox" instance=ExtResource("3_mm7vj")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_DEL"
+
+[node name="BackButton" parent="ButtonPanel/SideVBox" instance=ExtResource("3_mm7vj")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_BACK"
+
+[node name="RecordsPanel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = 14.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="RecordsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RecordsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="RecordList" type="VBoxContainer" parent="RecordsPanel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Record" parent="RecordsPanel/MarginContainer/ScrollContainer/RecordList" instance=ExtResource("3_mm7vj")]
+self_modulate = Color(1, 1, 1, 0.490196)
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
+[node name="RecordDesc" type="Label" parent="RecordsPanel/MarginContainer/ScrollContainer/RecordList/Record"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 272.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 8
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RoleAvatar" type="TextureRect" parent="RecordsPanel/MarginContainer/ScrollContainer/RecordList/Record"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.0
+expand_mode = 2
+
+[node name="Quick" type="Label" parent="."]
+offset_left = 72.0
+offset_right = 135.0
+offset_bottom = 14.0
+theme_override_colors/font_shadow_color = Color(0.941176, 0, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 1, 0.941176, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "K_Q_RECORD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Normal" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 48.0
+offset_right = 135.0
+offset_bottom = 62.0
+theme_override_colors/font_shadow_color = Color(0.941176, 1, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0, 0.941176, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "K_N_RECORD"
+
+[connection signal="pressed" from="ButtonPanel/SideVBox/QuickSaveGameButton" to="." method="_on_quick_save_game_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/SideVBox/QuickLoadGameButton" to="." method="_on_quick_load_game_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/SideVBox/SaveGameButton" to="." method="_on_save_game_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/SideVBox/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/SideVBox/NewRecordButton" to="." method="_on_new_record_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/SideVBox/DeleteRecordButton" to="." method="_on_delete_record_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/SideVBox/BackButton" to="." method="_on_back_button_pressed"]

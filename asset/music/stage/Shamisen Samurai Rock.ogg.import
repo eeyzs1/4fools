@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cildkmlu1aebo"
+path="res://.godot/imported/Shamisen Samurai Rock.ogg-7bb9bbac4505ad43af23e0a965f75de0.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Shamisen Samurai Rock.ogg"
+dest_files=["res://.godot/imported/Shamisen Samurai Rock.ogg-7bb9bbac4505ad43af23e0a965f75de0.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

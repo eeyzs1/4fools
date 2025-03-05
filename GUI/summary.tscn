@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmck6tg1xpefh"]
+
+[ext_resource type="Script" path="res://GUI/summary.gd" id="1_sfw1t"]
+[ext_resource type="PackedScene" uid="uid://ld6bdl0q1lvi" path="res://GUI/audio_button.tscn" id="3_1vja8"]
+[ext_resource type="PackedScene" uid="uid://bsfj6jb3a8ebq" path="res://GUI/owned_item_panel.tscn" id="4_dnnxq"]
+[ext_resource type="Texture2D" uid="uid://c55gwqiw6jkuu" path="res://items/asset/bounty.png" id="4_fe627"]
+[ext_resource type="PackedScene" uid="uid://f0tj3vq8x8bb" path="res://GUI/attr_panel.tscn" id="5_y5djy"]
+[ext_resource type="PackedScene" uid="uid://dfbmwgehne8ll" path="res://GUI/OwnedWeaponPanel.tscn" id="5_ycl3e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fknju"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 5
+
+[node name="summary" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_sfw1t")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="BMButton" parent="." instance=ExtResource("3_1vja8")]
+offset_left = 553.0
+offset_top = 333.0
+offset_right = 630.0
+offset_bottom = 357.0
+theme_override_font_sizes/font_size = 11
+text = "K_BACK_M"
+
+[node name="OwnedWeaponPanel" parent="." instance=ExtResource("5_ycl3e")]
+offset_bottom = 0.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fknju")
+
+[node name="MainCharacter" type="TextureRect" parent="."]
+offset_left = 360.0
+offset_right = 520.0
+offset_bottom = 239.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(120, 80)
+offset_left = 4.0
+offset_right = 336.0
+offset_bottom = 240.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 240.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AchImg" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="SummaryContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/SummaryContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Summary" type="Label" parent="Panel/MarginContainer/HBoxContainer/SummaryContainer/Panel"]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AttrPanel" parent="." instance=ExtResource("5_y5djy")]
+offset_left = -91.0
+offset_top = -159.0
+offset_bottom = 121.0
+
+[node name="OwnedItemPanel" parent="." instance=ExtResource("4_dnnxq")]
+offset_bottom = 360.0
+
+[node name="BountyBox" type="HBoxContainer" parent="."]
+offset_left = 536.0
+offset_right = 593.0
+offset_bottom = 16.0
+
+[node name="Bounty" type="Label" parent="BountyBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_BOUNTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BountyCount" type="Label" parent="BountyBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BountyBox"]
+layout_mode = 2
+texture = ExtResource("4_fe627")
+expand_mode = 2
+
+[connection signal="pressed" from="BMButton" to="." method="_on_bm_button_pressed"]

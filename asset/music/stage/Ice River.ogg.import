@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dchr4yfrxntjk"
+path="res://.godot/imported/Ice River.ogg-d13f6d0070829462e2f5cb6051be3d20.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Ice River.ogg"
+dest_files=["res://.godot/imported/Ice River.ogg-d13f6d0070829462e2f5cb6051be3d20.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

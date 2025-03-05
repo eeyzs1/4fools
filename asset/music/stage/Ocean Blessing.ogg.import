@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://x0lujqpqvgpq"
+path="res://.godot/imported/Ocean Blessing.ogg-c6d439006cf43f44f8a501a359d11640.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Ocean Blessing.ogg"
+dest_files=["res://.godot/imported/Ocean Blessing.ogg-c6d439006cf43f44f8a501a359d11640.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

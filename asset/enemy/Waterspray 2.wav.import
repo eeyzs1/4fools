@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://loxpu3c10f68"
+path="res://.godot/imported/Waterspray 2.wav-1f02a7cfdbdad9eb7edd3ff5c84004dc.sample"
+
+[deps]
+
+source_file="res://asset/enemy/Waterspray 2.wav"
+dest_files=["res://.godot/imported/Waterspray 2.wav-1f02a7cfdbdad9eb7edd3ff5c84004dc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

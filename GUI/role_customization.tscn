@@ -1,0 +1,490 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2e2ka5yy86i1"]
+
+[ext_resource type="Script" path="res://GUI/role_customization.gd" id="1_32ksw"]
+[ext_resource type="Script" path="res://GUI/audio_button.gd" id="2_bwvr3"]
+[ext_resource type="Texture2D" uid="uid://c55gwqiw6jkuu" path="res://items/asset/bounty.png" id="3_hm7yr"]
+[ext_resource type="Texture2D" uid="uid://b5xdvblb2r3wh" path="res://asset/attr/hp_recovery.png" id="4_l8el6"]
+[ext_resource type="StyleBox" uid="uid://c8glno1mpmdjl" path="res://GUI/panel_bg_black.tres" id="4_ymuk4"]
+[ext_resource type="Texture2D" uid="uid://c01bavhfmwyvd" path="res://asset/dec.png" id="5_681sx"]
+[ext_resource type="Texture2D" uid="uid://bi64jlfasa7e3" path="res://asset/inc.png" id="6_yxxx4"]
+[ext_resource type="StyleBox" uid="uid://bo1rlnaqnu4w0" path="res://GUI/audio_button_black.tres" id="8_fn3mg"]
+[ext_resource type="StyleBox" uid="uid://2jh3j3jdvx82" path="res://GUI/audio_button_green.tres" id="9_rh0lx"]
+[ext_resource type="PackedScene" uid="uid://ld6bdl0q1lvi" path="res://GUI/audio_button.tscn" id="10_jhm4r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vrjc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="RoleCustomization" type="CanvasLayer"]
+script = ExtResource("1_32ksw")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SelectRolePanel" type="Panel" parent="HSplitContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/SelectRolePanel"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RolePanelContainer" type="GridContainer" parent="HSplitContainer/SelectRolePanel/ScrollContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="ChoseRoleButton" type="Button" parent="HSplitContainer/SelectRolePanel/ScrollContainer/RolePanelContainer"]
+visible = false
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2vrjc")
+script = ExtResource("2_bwvr3")
+
+[node name="RoleAvatar" type="TextureRect" parent="HSplitContainer/SelectRolePanel/ScrollContainer/RolePanelContainer/ChoseRoleButton"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 45.0
+expand_mode = 1
+
+[node name="AttrPanel" type="Panel" parent="HSplitContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RolePic" type="TextureRect" parent="HSplitContainer/AttrPanel"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/AttrPanel/RolePic"]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 384.0
+offset_bottom = 24.0
+theme_override_constants/separation = 10
+
+[node name="RoleName" type="Label" parent="HSplitContainer/AttrPanel/RolePic/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttrPtsLabel" type="Label" parent="HSplitContainer/AttrPanel/RolePic/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_ATTR_PTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttrPoints" type="Label" parent="HSplitContainer/AttrPanel/RolePic/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/AttrPanel/RolePic/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_hm7yr")
+expand_mode = 2
+
+[node name="InitBounty" type="Label" parent="HSplitContainer/AttrPanel/RolePic/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc" type="Label" parent="HSplitContainer/AttrPanel/RolePic"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 32.0
+offset_right = 383.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RoleCusPanel" type="Panel" parent="HSplitContainer/AttrPanel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 360.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/AttrPanel/RoleCusPanel"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="GridContainer" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="FixedAttrsList" type="VBoxContainer" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AttrTemplate" type="HBoxContainer" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/FixedAttrsList"]
+visible = false
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="AttrImg" type="TextureRect" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/FixedAttrsList/AttrTemplate"]
+layout_mode = 2
+size_flags_horizontal = 0
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/FixedAttrsList/AttrTemplate/AttrImg"]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = 136.0
+offset_top = 2.0
+offset_right = 264.0
+offset_bottom = 50.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("4_ymuk4")
+
+[node name="Img" type="TextureRect" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/FixedAttrsList/AttrTemplate/AttrImg/Panel"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
+texture = ExtResource("4_l8el6")
+expand_mode = 2
+
+[node name="Name" type="Label" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/FixedAttrsList/AttrTemplate/AttrImg/Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_right = 125.0
+offset_bottom = 16.0
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc" type="Label" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/FixedAttrsList/AttrTemplate/AttrImg/Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 128.0
+offset_bottom = 48.0
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 6
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AttrName" type="Label" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/FixedAttrsList/AttrTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "K_LV"
+vertical_alignment = 1
+
+[node name="AttrValue" type="Label" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/FixedAttrsList/AttrTemplate"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "3"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AttrNameList" type="VBoxContainer" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AttrTemplate" type="HBoxContainer" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrNameList"]
+visible = false
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="AttrImg" type="TextureRect" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrNameList/AttrTemplate"]
+layout_mode = 2
+size_flags_horizontal = 0
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrNameList/AttrTemplate/AttrImg"]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = 86.0
+offset_top = 2.0
+offset_right = 214.0
+offset_bottom = 50.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("4_ymuk4")
+
+[node name="Img" type="TextureRect" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrNameList/AttrTemplate/AttrImg/Panel"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
+texture = ExtResource("4_l8el6")
+expand_mode = 2
+
+[node name="Name" type="Label" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrNameList/AttrTemplate/AttrImg/Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_right = 125.0
+offset_bottom = 16.0
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc" type="Label" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrNameList/AttrTemplate/AttrImg/Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 128.0
+offset_bottom = 48.0
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 6
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AttrName" type="Label" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrNameList/AttrTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "K_LV"
+vertical_alignment = 1
+
+[node name="AttrDecList" type="VBoxContainer" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="attr_dec_btn" type="Button" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrDecList"]
+visible = false
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+icon = ExtResource("5_681sx")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_bwvr3")
+
+[node name="AttrValList" type="VBoxContainer" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AttrValLabel" type="Label" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrValList"]
+visible = false
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttrIncList" type="VBoxContainer" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="attr_inc_btn" type="Button" parent="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrIncList"]
+visible = false
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+icon = ExtResource("6_yxxx4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_bwvr3")
+
+[node name="OwnedWeaponPanel" type="Panel" parent="HSplitContainer/AttrPanel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 392.0
+offset_top = 8.0
+offset_right = 516.0
+offset_bottom = 152.0
+
+[node name="OwnedWeaponScrollContainer" type="ScrollContainer" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 3
+
+[node name="OwnedWeaponContainer" type="GridContainer" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="OwnedWeaponWindow" type="TextureRect" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 45)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer/OwnedWeaponWindow"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WeaponPanel" type="Panel" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer/OwnedWeaponWindow"]
+visible = false
+layout_mode = 0
+offset_left = -88.0
+offset_right = -2.0
+offset_bottom = 129.0
+
+[node name="WeaponDetail" type="VBoxContainer" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer/OwnedWeaponWindow/WeaponPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="OverviewBox" type="HBoxContainer" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer/OwnedWeaponWindow/WeaponPanel/WeaponDetail"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer/OwnedWeaponWindow/WeaponPanel/WeaponDetail/OverviewBox"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+
+[node name="WeaponTexture" type="TextureRect" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer/OwnedWeaponWindow/WeaponPanel/WeaponDetail/OverviewBox/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="WeaponName" type="Label" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer/OwnedWeaponWindow/WeaponPanel/WeaponDetail/OverviewBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+text = "K_ATK_INTVL"
+horizontal_alignment = 1
+
+[node name="AttrBox" type="VBoxContainer" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer/OwnedWeaponWindow/WeaponPanel/WeaponDetail"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="WeaponAttrText" type="RichTextLabel" parent="HSplitContainer/AttrPanel/OwnedWeaponPanel/OwnedWeaponScrollContainer/OwnedWeaponContainer/OwnedWeaponWindow/WeaponPanel/WeaponDetail/AttrBox"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+fit_content = true
+
+[node name="GoButton" type="Button" parent="HSplitContainer/AttrPanel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 400.0
+offset_top = 256.0
+offset_right = 520.0
+offset_bottom = 306.0
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("9_rh0lx")
+theme_override_styles/hover = ExtResource("9_rh0lx")
+theme_override_styles/pressed = ExtResource("8_fn3mg")
+theme_override_styles/normal = ExtResource("8_fn3mg")
+text = "K_GO"
+script = ExtResource("2_bwvr3")
+
+[node name="Panel" type="Panel" parent="HSplitContainer/AttrPanel/GoButton"]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 120.0
+offset_bottom = -8.0
+
+[node name="Prompt" type="Label" parent="HSplitContainer/AttrPanel/GoButton/Panel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "K_CHOSE_ROLE_PROMPT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BackToMain" parent="HSplitContainer/AttrPanel" instance=ExtResource("10_jhm4r")]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 320.0
+offset_right = 516.0
+offset_bottom = 352.0
+theme_override_font_sizes/font_size = 15
+text = "K_BACK_M"
+
+[connection signal="button_down" from="HSplitContainer/SelectRolePanel/ScrollContainer/RolePanelContainer/ChoseRoleButton" to="HSplitContainer/SelectRolePanel/ScrollContainer/RolePanelContainer/ChoseRoleButton" method="_on_button_down"]
+[connection signal="focus_entered" from="HSplitContainer/SelectRolePanel/ScrollContainer/RolePanelContainer/ChoseRoleButton" to="HSplitContainer/SelectRolePanel/ScrollContainer/RolePanelContainer/ChoseRoleButton" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="HSplitContainer/SelectRolePanel/ScrollContainer/RolePanelContainer/ChoseRoleButton" to="HSplitContainer/SelectRolePanel/ScrollContainer/RolePanelContainer/ChoseRoleButton" method="_on_mouse_entered"]
+[connection signal="button_down" from="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrDecList/attr_dec_btn" to="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrDecList/attr_dec_btn" method="_on_button_down"]
+[connection signal="focus_entered" from="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrDecList/attr_dec_btn" to="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrDecList/attr_dec_btn" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrDecList/attr_dec_btn" to="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrDecList/attr_dec_btn" method="_on_mouse_entered"]
+[connection signal="button_down" from="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrIncList/attr_inc_btn" to="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrIncList/attr_inc_btn" method="_on_button_down"]
+[connection signal="focus_entered" from="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrIncList/attr_inc_btn" to="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrIncList/attr_inc_btn" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrIncList/attr_inc_btn" to="HSplitContainer/AttrPanel/RoleCusPanel/ScrollContainer/PanelContainer/AttrIncList/attr_inc_btn" method="_on_mouse_entered"]
+[connection signal="button_down" from="HSplitContainer/AttrPanel/GoButton" to="HSplitContainer/AttrPanel/GoButton" method="_on_button_down"]
+[connection signal="focus_entered" from="HSplitContainer/AttrPanel/GoButton" to="HSplitContainer/AttrPanel/GoButton" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="HSplitContainer/AttrPanel/GoButton" to="HSplitContainer/AttrPanel/GoButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="HSplitContainer/AttrPanel/GoButton" to="." method="_on_go_button_pressed"]
+[connection signal="pressed" from="HSplitContainer/AttrPanel/BackToMain" to="." method="_on_back_to_main_pressed"]

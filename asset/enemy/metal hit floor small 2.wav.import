@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dy2u4ce5gy7ou"
+path="res://.godot/imported/metal hit floor small 2.wav-70389a3bc7a10c83a83e1cb8a76ac11a.sample"
+
+[deps]
+
+source_file="res://asset/enemy/metal hit floor small 2.wav"
+dest_files=["res://.godot/imported/metal hit floor small 2.wav-70389a3bc7a10c83a83e1cb8a76ac11a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

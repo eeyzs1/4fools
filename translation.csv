@@ -1,0 +1,130 @@
+﻿KEYS,en,chn
+K_START_GAME,Start Game,开始游戏
+K_STORY_MODE,Story Mode,故事模式
+K_UPGRADE_COUNT,Upgrade Count,升级统计
+K_GO,GO!,出发！
+K_LEVEL_MODE,Level Mode,关卡模式
+K_LOAD_GAME,Load Game,加载游戏
+K_SAVE_GAME,Save Game,保存游戏
+K_SETTINGS,Settings,游戏设置
+K_EXIT_GAME,Exit Game,退出游戏
+K_CREDIT,Credit,鸣谢
+K_UPGRADE,Upgrade,升级
+K_CHOOSE,Choose,选择
+K_REFRESH,Refresh,刷新
+K_HP_RECOVERY_RATE,Hp recovery,生命恢复
+K_EVASION,Evasion rate,闪避率
+K_ACCURACY,Accuracy rate,命中率
+K_BOUNTY_GAIN,Extra bounty,额外赏金
+K_EXP_GAIN,Extra exp,额外经验
+K_ELOQUENCY,Eloquency,口才
+K_AFFINITY,Affinity,亲和力
+K_SANITY,Sanity,理智
+K_INTELLIGENCE,Intelligence,智力
+K_EFFICIENCY,Fuel efficiency,燃料效率
+K_HP,Hp,生命值
+K_EXP,Exp,经验值
+K_MAX_HP,Max Hp,最大生命值
+K_MAX_EXP,Max Exp,最大经验值
+K_ATK,Attack,攻击力
+K_ARMOR,Armor,护甲
+K_INJURY_REDUCTION,Injury reduction,减伤率
+K_SPEED,Move speed,移动速度
+K_CRIT_RATE,Crit atk rate,暴击率
+K_ADD_DMG,Additional damage,额外伤害
+K_EXPL_RNG,Explosion range,爆炸范围
+K_EXPL_DMG,Explosion damage,爆炸伤害
+K_TP,Throughpass,贯穿
+K_RICO,Ricochet,跳弹
+K_SPL,Split,分裂
+K_LV,Level,等级
+K_WEAPON_NAME,Weapon name,武器名字
+K_WEAPON_DESC,Weapon description,武器描述
+K_ATK_RNG,Attack range,攻击范围
+K_ATK_INTVL,Attack interval,攻击间隔
+K_INFO,Info,情报
+K_GROWTH,Growth rate,成长率
+K_NM,Need More,需要更多
+K_ND,Need,需要
+K_CANCEL,Cancel,取消
+K_SELL,Sell,出售
+K_SYNTHESIS,Synthesis,合成
+K_PRICE,General price,一般售价
+K_BUY,Buy,购买
+K_Q_RECORD,Quick save record,快速保存记录
+K_N_RECORD,Normal save record,保存记录
+K_AUTO_ATK,Auto attack,自动攻击
+K_ES,Enemy speed,敌人移速
+K_ED,Enemy damage,敌人伤害
+K_Q_SAVE,Quick\nSave,快速\n保存
+K_Q_LOAD,Quick\nLoad,快速\n加载
+K_SAVE,Save\nRecord,保存\n记录
+K_LOAD,Load\nRecord,加载\n记录
+K_NEW,New\nRecord,建新\n纪录
+K_DEL,Delete\nRecord,删除\n记录
+K_BACK,Back,返回
+K_RESET,Reset,重置
+K_MV_UP,Move up,上移
+K_MV_DOWN,Move down,下移
+K_MV_LEFT,Move left,左移
+K_MV_RIGHT,Move right,右移
+K_SHOOT,Shoot,射击
+K_SL,Save&Load,保存加载
+K_RESTART,Restart,重开
+K_BACK_M,Back to Main,返回主菜单
+K_CONTINUE,Continue,继续
+K_HIS,History,历史
+K_NEXT,Next,下一个
+K_AUTO,Auto,自动
+K_FF,Fast Forward,快进
+K_SKIP,Skip,跳过
+K_BOUNTY,Bounty,赏金
+K_PATIENCE,Patience,耐心
+K_GN_CONTROL,General control,一般控制
+K_GM_CONTROL,Game Control,游戏控制
+K_FULLSRN,Full Screen,全屏
+K_WDMODE,Window Mode,窗口模式
+K_BLWD,Borderless Window,无边框窗口
+K_DLFULLSRN,Borderless Full Screen,无边框全屏
+K_DISPLAY_MODE,Display mode,显示模式
+K_WD_SIZE,Window Size,窗口尺寸
+K_BIND_KEY,Press New Key To Bind,按一个新键来绑定
+K_DIS_DMG,Display damage,显示伤害
+K_ESP,Enemy spawn period(s),敌人生成周期（秒）
+K_EGEP,Enemy generation every period,每周期敌人生成数
+K_MEA,Max enemy amount,最大敌人数
+K_MEXP_GROWTH,Max exp growth rate,最大经验值增长比率
+K_ATTR,Attributes,属性
+K_ATTR_PTS,Attributes points,属性点
+K_LV_DESC,Cuurent Level Influence drop chance,当前等级影响掉落率
+K_MAX_EXP_DESC,Max experience required to increase 1 level,提升一级所需经验
+K_INFO_DESC,Infomation value that Influence extra bounty and eloquency,情报值影响额外赏金和口才
+K_MAX_HP_DESC,Max health point,最大生命值
+K_HP_RECOVERY_RATE_DESC,Health point of ship recover per second,每秒舰船生命恢复
+K_ARMOR_DESC,Reduce damage on each attack received,在每次收到攻击时减免伤害量
+K_SPEED_DESC,"Move speed of ship,Slight impact on missile flight speed",舰船移动速度，轻微影响飞弹飞行速度
+K_EVASION_DESC,"Evasion work when received attack,Complete evasion at 800 points",闪避率被攻击时起作用，八百点时完全闪避
+K_ACCURACY_DESC,Accuracy work during attack,命中率攻击时起作用
+K_CRIT_RATE_DESC,Critical attack rate work during attack,暴击率攻击时起作用
+K_BOUNTY_GAIN_DESC,Gain extra bounty when gain bounty,每次获取赏金时增加额外赏金
+K_EXP_GAIN_DESC,Gain extra experience when gain experience,每次获取经验时增加额外经验
+K_ELOQUENCY_DESC,Descrease the prices of items in market,降低市场的物品价格
+K_AFFINITY_DESC,"Increase the patience of saleperson and Deducting refresh fees",增加售货员的耐心，抵扣刷新费用
+K_SANITY_DESC,Sanity less than 0 will end game,理智值小于零时游戏结束
+K_INTELLIGENCE_DESC,Intelligence Influence extra experience and sanity,智力影响额外经验和理智
+K_EFFICIENCY_DESC,Fuel efficiency Influence duration of each battle,燃油效率影响每场战斗时长
+K_ADD_DMG_DESC,Additional damage on attack hit,攻击命中时的额外伤害
+K_EXPL_RNG_DESC,Explosion range at the time of attack hit,攻击命中时的爆炸范围
+K_EXPL_DMG_DESC,Explosion damage at the time of attack hit,攻击命中时的爆炸伤害
+K_TP_DESC,The number of throughpass during attack hits,攻击命中时的贯穿次数
+K_RICO_DESC,The number of ricochet during attack hits,攻击命中时的攻击滑弹次数
+K_SPL_DESC,The number of split during attack hits,攻击命中时的攻击分裂次数
+K_VA_CTRL,Video&Audio Control,音视频控制
+K_MUSIC,Music(Linear energy),音乐（线性能量）
+K_SOUND,Sound(Linear energy),音效（线性能量）
+K_SP_READY,Sp Ready, 异能已准备
+K_SP_USED,Sp Used, 异能已使用
+K_SP_WORKING,Sp working, 异能发动中
+K_SP,Speical Ability, 特殊能力
+K_MANUAL,Manual,操作指南
+K_CHOSE_ROLE_PROMPT,Please choose a role to go,请先选择一名角色

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cl78qaq1qsxff"
+path="res://.godot/imported/Death Crew.ogg-282e91d52c35c7f1eb38513c9226bae1.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Death Crew.ogg"
+dest_files=["res://.godot/imported/Death Crew.ogg-282e91d52c35c7f1eb38513c9226bae1.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

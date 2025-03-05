@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccqs7mmj80mpr"]
+
+[ext_resource type="Script" path="res://GUI/pause.gd" id="1_80paw"]
+[ext_resource type="PackedScene" uid="uid://ld6bdl0q1lvi" path="res://GUI/audio_button.tscn" id="2_nlwfq"]
+[ext_resource type="PackedScene" uid="uid://f0tj3vq8x8bb" path="res://GUI/attr_panel.tscn" id="2_wxpjv"]
+[ext_resource type="PackedScene" uid="uid://bsfj6jb3a8ebq" path="res://GUI/owned_item_panel.tscn" id="3_t5acs"]
+[ext_resource type="PackedScene" uid="uid://dfbmwgehne8ll" path="res://GUI/OwnedWeaponPanel.tscn" id="4_scbty"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dic53"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 5
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_80paw")
+
+[node name="OwnedItemPanel" parent="." instance=ExtResource("3_t5acs")]
+offset_left = 160.0
+offset_top = 80.0
+offset_right = 490.0
+offset_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OwnedWeaponPanel" parent="." instance=ExtResource("4_scbty")]
+offset_left = -160.0
+offset_top = -102.0
+offset_right = 170.0
+offset_bottom = 0.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dic53")
+
+[node name="AttrPanel" parent="." instance=ExtResource("2_wxpjv")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 32.0
+offset_top = 90.0
+offset_right = 124.0
+offset_bottom = 258.0
+theme_override_constants/separation = 10
+
+[node name="ContinueButton" parent="VBoxContainer" instance=ExtResource("2_nlwfq")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "K_CONTINUE"
+
+[node name="BackMainButton" parent="VBoxContainer" instance=ExtResource("2_nlwfq")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "K_BACK_M"
+
+[node name="RestartButton" parent="VBoxContainer" instance=ExtResource("2_nlwfq")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "K_RESTART"
+
+[node name="SLButton" parent="VBoxContainer" instance=ExtResource("2_nlwfq")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "K_SL"
+
+[node name="SettingButton" parent="VBoxContainer" instance=ExtResource("2_nlwfq")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "K_SETTINGS"
+
+[node name="ExitButton" parent="VBoxContainer" instance=ExtResource("2_nlwfq")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "K_EXIT_GAME"
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackMainButton" to="." method="_on_back_main_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SLButton" to="." method="_on_sl_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

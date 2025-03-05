@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctp6odf8ghv4f"]
+
+[ext_resource type="Shader" uid="uid://xlgkxlfoohr5" path="res://shader/clip_mask.tres" id="1_nwnug"]
+[ext_resource type="Texture2D" uid="uid://do6u0q0lct6oi" path="res://items/asset/attr/ConstrainedBullet.png" id="2_4j271"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kx17f"]
+resource_local_to_scene = true
+shader = ExtResource("1_nwnug")
+shader_parameter/min_uv = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mm7pn"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+
+[node name="OwnedItemWindow" type="TextureRect"]
+visible = false
+material = SubResource("ShaderMaterial_kx17f")
+custom_minimum_size = Vector2(36, 36)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_4j271")
+expand_mode = 2
+
+[node name="Num" type="Label" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ItemDetailPanel" type="Panel" parent="."]
+visible = false
+z_index = 30
+z_as_relative = false
+layout_mode = 0
+offset_top = -80.0
+offset_right = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mm7pn")
+
+[node name="ItemDetail" type="VBoxContainer" parent="ItemDetailPanel"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 50.0
+theme_override_constants/separation = -1
+
+[node name="OverviewBox" type="HBoxContainer" parent="ItemDetailPanel/ItemDetail"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ItemTexture" type="TextureRect" parent="ItemDetailPanel/ItemDetail/OverviewBox"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="ItemName" type="Label" parent="ItemDetailPanel/ItemDetail/OverviewBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 6
+text = "K_ATK_INTVL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AttrBox" type="VBoxContainer" parent="ItemDetailPanel/ItemDetail"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="ItemAttrText" type="RichTextLabel" parent="ItemDetailPanel/ItemDetail/AttrBox"]
+custom_minimum_size = Vector2(80, 10)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+fit_content = true

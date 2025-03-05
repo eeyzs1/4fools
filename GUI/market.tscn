@@ -1,0 +1,265 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwhbhwpavljfl"]
+
+[ext_resource type="Script" path="res://GUI/market.gd" id="1_n3sx0"]
+[ext_resource type="Texture2D" uid="uid://c55gwqiw6jkuu" path="res://items/asset/bounty.png" id="3_2e5ex"]
+[ext_resource type="PackedScene" uid="uid://f0tj3vq8x8bb" path="res://GUI/attr_panel.tscn" id="4_76bgh"]
+[ext_resource type="PackedScene" uid="uid://ld6bdl0q1lvi" path="res://GUI/audio_button.tscn" id="4_mkptj"]
+[ext_resource type="PackedScene" uid="uid://bsfj6jb3a8ebq" path="res://GUI/owned_item_panel.tscn" id="5_gvchd"]
+[ext_resource type="PackedScene" uid="uid://dfbmwgehne8ll" path="res://GUI/OwnedWeaponPanel.tscn" id="6_xa6n2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akxhx"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k704b"]
+content_margin_left = 0.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 1, 0, 1)
+
+[node name="Market" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_n3sx0")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.588235)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="RefreshButton" parent="." instance=ExtResource("4_mkptj")]
+offset_left = 553.0
+offset_top = 304.0
+offset_right = 620.0
+offset_bottom = 328.0
+theme_override_font_sizes/font_size = 11
+text = "K_REFRESH"
+
+[node name="TextureRect" type="TextureRect" parent="RefreshButton"]
+layout_mode = 0
+offset_left = 63.0
+offset_right = 87.0
+offset_bottom = 24.0
+texture = ExtResource("3_2e5ex")
+expand_mode = 2
+
+[node name="ContinueButton" parent="." instance=ExtResource("4_mkptj")]
+offset_left = 553.0
+offset_top = 333.0
+offset_right = 630.0
+offset_bottom = 357.0
+theme_override_font_sizes/font_size = 11
+text = "K_CONTINUE"
+
+[node name="OwnedWeaponScrollContainer" parent="." instance=ExtResource("6_xa6n2")]
+offset_bottom = 0.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_akxhx")
+
+[node name="Salesperson" type="TextureRect" parent="."]
+offset_left = 392.0
+offset_right = 549.0
+offset_bottom = 256.0
+mouse_filter = 0
+expand_mode = 4
+
+[node name="PatienceBar" type="ProgressBar" parent="Salesperson"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 208.0
+offset_right = 128.0
+offset_bottom = 220.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/fill = SubResource("StyleBoxFlat_k704b")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="PatienceLabel" type="Label" parent="Salesperson/PatienceBar"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+offset_left = 31.0
+offset_right = 78.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "K_PATIENCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OwnedItemPanel" parent="." instance=ExtResource("5_gvchd")]
+offset_bottom = 360.0
+
+[node name="ItemsGrid" type="GridContainer" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 392.0
+offset_bottom = 252.0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 3
+
+[node name="ItemPanel" type="Panel" parent="ItemsGrid"]
+visible = false
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ItemsGrid/ItemPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemsGrid/ItemPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemsGrid/ItemPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 60)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="ItemsGrid/ItemPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="ItemImg" type="TextureRect" parent="ItemsGrid/ItemPanel/MarginContainer/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="ItemName" type="Label" parent="ItemsGrid/ItemPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="GainScrollContainer" type="ScrollContainer" parent="ItemsGrid/ItemPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GainVBoxContainer" type="VBoxContainer" parent="ItemsGrid/ItemPanel/MarginContainer/HBoxContainer/GainScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GainLabel" type="RichTextLabel" parent="ItemsGrid/ItemPanel/MarginContainer/HBoxContainer/GainScrollContainer/GainVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 5
+bbcode_enabled = true
+fit_content = true
+
+[node name="ItemButton" parent="ItemsGrid/ItemPanel" instance=ExtResource("4_mkptj")]
+self_modulate = Color(1, 1, 1, 0.470588)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemsGrid/ItemPanel/ItemButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="ItemsGrid/ItemPanel/ItemButton/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ItemsGrid/ItemPanel/ItemButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_2e5ex")
+expand_mode = 2
+
+[node name="BountyBox" type="HBoxContainer" parent="."]
+offset_left = 552.0
+offset_right = 629.0
+offset_bottom = 16.0
+
+[node name="Bounty" type="Label" parent="BountyBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0.470588, 0.509804, 1)
+theme_override_colors/font_outline_color = Color(0.823529, 0.235294, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "K_BOUNTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BountyCount" type="Label" parent="BountyBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.823529, 0.235294, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.470588, 0.509804, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BountyBox"]
+layout_mode = 2
+texture = ExtResource("3_2e5ex")
+expand_mode = 2
+
+[node name="MaskPanel" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -248.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MaskPanel2" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 549.0
+offset_top = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttrPanel" parent="." instance=ExtResource("4_76bgh")]
+offset_left = -91.0
+offset_top = -159.0
+offset_bottom = 121.0
+
+[connection signal="pressed" from="RefreshButton" to="." method="_on_refresh_button_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="switch_mask_panel" from="OwnedWeaponScrollContainer" to="." method="_on_owned_weapon_scroll_container_switch_mask_panel"]

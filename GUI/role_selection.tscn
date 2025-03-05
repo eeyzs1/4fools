@@ -1,0 +1,279 @@
+[gd_scene load_steps=7 format=3 uid="uid://6ldxc3sksoi"]
+
+[ext_resource type="Script" path="res://GUI/role_selection.gd" id="1_ql5lq"]
+[ext_resource type="Texture2D" uid="uid://cue38mdgmfpoj" path="res://asset/main_character/IC/base.png" id="3_1mlg3"]
+[ext_resource type="Texture2D" uid="uid://cbn5h7ahv83ya" path="res://asset/main_character/AD/base.png" id="4_itvro"]
+[ext_resource type="Texture2D" uid="uid://cvkgmxdcvnhcu" path="res://asset/main_character/NE/base.png" id="5_oqjny"]
+[ext_resource type="Texture2D" uid="uid://caii2f4h1hfec" path="res://asset/main_character/AS/base.png" id="6_e7dce"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akbad"]
+bg_color = Color(1, 1, 1, 0)
+
+[node name="RoleSelection" type="CanvasLayer"]
+script = ExtResource("1_ql5lq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 4
+columns = 4
+
+[node name="ImperialCommandoPanel" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/ImperialCommandoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1mlg3")
+expand_mode = 1
+
+[node name="Identity" type="Label" parent="GridContainer/ImperialCommandoPanel"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.5
+offset_top = 8.0
+offset_right = 36.5
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "K_IMPERIAL_COMMANDO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImperialCommando" type="Button" parent="GridContainer/ImperialCommandoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_akbad")
+
+[node name="IcIntro" type="Label" parent="GridContainer/ImperialCommandoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 8
+text = "K_COMMANDO_INTRO"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AllianceDiplomatPanel" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/AllianceDiplomatPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_itvro")
+expand_mode = 1
+
+[node name="Identity" type="Label" parent="GridContainer/AllianceDiplomatPanel"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_top = 8.0
+offset_right = 35.5
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "K_ALLIANCE_DIPLOMAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AllianceDiplomat" type="Button" parent="GridContainer/AllianceDiplomatPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_akbad")
+
+[node name="AdIntro" type="Label" parent="GridContainer/AllianceDiplomatPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 8
+text = "K_DIPLOMAT_INTRO"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="NeutralExplorerPanel" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/NeutralExplorerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_oqjny")
+expand_mode = 1
+
+[node name="Identity" type="Label" parent="GridContainer/NeutralExplorerPanel"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "K_NEUTRAL_EXPLORER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NeutralExplorer" type="Button" parent="GridContainer/NeutralExplorerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_akbad")
+
+[node name="NeIntro" type="Label" parent="GridContainer/NeutralExplorerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 8
+text = "K_EXPLORER_INTRO"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AlienSurvivorPanel" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/AlienSurvivorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_e7dce")
+expand_mode = 1
+
+[node name="Identity" type="Label" parent="GridContainer/AlienSurvivorPanel"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "K_ALIEN_SURVIVOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AlienSurvivor" type="Button" parent="GridContainer/AlienSurvivorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_akbad")
+
+[node name="AsIntro" type="Label" parent="GridContainer/AlienSurvivorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 8
+text = "K_SURVIVOR_INTRO"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="GridContainer/ImperialCommandoPanel/ImperialCommando" to="." method="_on_imperial_commando_pressed"]
+[connection signal="mouse_entered" from="GridContainer/ImperialCommandoPanel/IcIntro" to="." method="_on_intro_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/ImperialCommandoPanel/IcIntro" to="." method="_on_ic_intro_mouse_exited"]
+[connection signal="pressed" from="GridContainer/AllianceDiplomatPanel/AllianceDiplomat" to="." method="_on_alliance_diplomat_pressed"]
+[connection signal="mouse_entered" from="GridContainer/AllianceDiplomatPanel/AdIntro" to="." method="_on_ad_intro_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/AllianceDiplomatPanel/AdIntro" to="." method="_on_ad_intro_mouse_exited"]
+[connection signal="pressed" from="GridContainer/NeutralExplorerPanel/NeutralExplorer" to="." method="_on_neutral_explorer_pressed"]
+[connection signal="mouse_entered" from="GridContainer/NeutralExplorerPanel/NeIntro" to="." method="_on_ne_intro_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/NeutralExplorerPanel/NeIntro" to="." method="_on_ne_intro_mouse_exited"]
+[connection signal="pressed" from="GridContainer/AlienSurvivorPanel/AlienSurvivor" to="." method="_on_alien_survivor_pressed"]
+[connection signal="mouse_entered" from="GridContainer/AlienSurvivorPanel/AsIntro" to="." method="_on_as_intro_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/AlienSurvivorPanel/AsIntro" to="." method="_on_as_intro_mouse_exited"]

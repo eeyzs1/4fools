@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c8yiueqtr7hyo"
+path="res://.godot/imported/Leave The Port.ogg-fe612ce0078f7f0fe3c4a9f52a3bf9f7.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Leave The Port.ogg"
+dest_files=["res://.godot/imported/Leave The Port.ogg-fe612ce0078f7f0fe3c4a9f52a3bf9f7.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

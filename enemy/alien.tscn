@@ -1,0 +1,1939 @@
+[gd_scene load_steps=72 format=3 uid="uid://bpdj3tgkowem8"]
+
+[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_771lu"]
+[ext_resource type="Texture2D" uid="uid://boovhaplae61e" path="res://asset/enemy/alien.png" id="2_eu6o6"]
+[ext_resource type="AudioStream" uid="uid://c76bj36g686ec" path="res://asset/enemy/SerpentBeast_Hiss.wav" id="3_iqkd5"]
+[ext_resource type="AudioStream" uid="uid://du81ctnc7sf14" path="res://asset/enemy/Dinosaur_Shriek10.mp3" id="3_mcfvm"]
+[ext_resource type="AudioStream" uid="uid://bjgn412b722qc" path="res://asset/enemy/Giant_Grunt.wav" id="3_tbtfd"]
+[ext_resource type="AudioStream" uid="uid://ctoaq7fupooms" path="res://asset/enemy/Ghost Convo 4.wav" id="3_y6kci"]
+[ext_resource type="AudioStream" uid="uid://dgyvn2evppvt5" path="res://asset/enemy/Warg_Talk.wav" id="4_ncy4l"]
+[ext_resource type="AudioStream" uid="uid://b3e67as3dok8u" path="res://asset/enemy/Fae_Sigh.mp3" id="5_bb4x8"]
+[ext_resource type="AudioStream" uid="uid://c2fyjxnjt75ah" path="res://asset/enemy/Tone_Moaning.wav" id="5_i55y0"]
+[ext_resource type="AudioStream" uid="uid://cx0unpx4w61mo" path="res://asset/enemy/Warg_Growl2.wav" id="6_p4rsy"]
+[ext_resource type="AudioStream" uid="uid://d2wlonwa8n55l" path="res://asset/enemy/Riverbeast_1.wav" id="7_mf466"]
+[ext_resource type="AudioStream" uid="uid://b58bvyq4ixcj6" path="res://asset/enemy/Monster_Grunt3.mp3" id="7_qufi3"]
+[ext_resource type="AudioStream" uid="uid://ca0gfsg3ak4ei" path="res://asset/enemy/switch.wav" id="7_y5bnq"]
+[ext_resource type="AudioStream" uid="uid://c2dkgt4qgmiks" path="res://asset/enemy/Monster_breath.wav" id="9_b76wl"]
+[ext_resource type="AudioStream" uid="uid://bw75joxhfusv" path="res://asset/enemy/Monster_Growl14.mp3" id="12_y3h6i"]
+[ext_resource type="AudioStream" uid="uid://stljftrvymi3" path="res://asset/enemy/GreaWarg_Attack.wav" id="13_2384m"]
+
+[sub_resource type="Animation" id="Animation_u2gt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6w6ds"]
+_data = {
+"RESET": SubResource("Animation_u2gt8")
+}
+
+[sub_resource type="Animation" id="Animation_d7syl"]
+resource_name = "alien_die_1"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hfr54"]
+resource_name = "alien_die_10"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [36]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rtxs8"]
+resource_name = "alien_die_11"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [40]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jadjt"]
+resource_name = "alien_die_12"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [48]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8n54v"]
+resource_name = "alien_die_13"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [52]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qhtgg"]
+resource_name = "alien_die_14"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [56]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vepui"]
+resource_name = "alien_die_15"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [60]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kqlwe"]
+resource_name = "alien_die_16"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [64]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g1u42"]
+resource_name = "alien_die_17"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [68]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7v2se"]
+resource_name = "alien_die_2"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ll14c"]
+resource_name = "alien_die_3"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e6qs5"]
+resource_name = "alien_die_4"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ss86i"]
+resource_name = "alien_die_5"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6pyxi"]
+resource_name = "alien_die_6"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a6rnm"]
+resource_name = "alien_die_7"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gw5ym"]
+resource_name = "alien_die_8"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [28]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ogfu5"]
+resource_name = "alien_die_9"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [32]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hn3s0"]
+resource_name = "alien_hurt_1"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_y6kci")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_miv11"]
+resource_name = "alien_hurt_10"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [38, 39, 38]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_mcfvm")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_hbtpi"]
+resource_name = "alien_hurt_11"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [44, 45, 46, 47]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_iqkd5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_t5xcl"]
+resource_name = "alien_hurt_12"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [50, 51, 50]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_i55y0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_1rcai"]
+resource_name = "alien_hurt_13"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [54, 55]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_ncy4l")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_1hn3r"]
+resource_name = "alien_hurt_14"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [58, 59]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_y5bnq")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_3q2yq"]
+resource_name = "alien_hurt_15"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [62, 63, 62, 63]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_qufi3")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_c3o5a"]
+resource_name = "alien_hurt_16"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [66, 67, 66, 67]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_bb4x8")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_g3rma"]
+resource_name = "alien_hurt_17"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [70, 71, 70]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_b76wl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_eilgc"]
+resource_name = "alien_hurt_2"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 7]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_y6kci")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_sabae"]
+resource_name = "alien_hurt_3"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9, 11]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_p4rsy")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_c6bm3"]
+resource_name = "alien_hurt_4"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [13, 15]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_mf466")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_4lh4h"]
+resource_name = "alien_hurt_5"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [17, 19, 17, 19]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_y3h6i")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_vgbgi"]
+resource_name = "alien_hurt_6"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [21, 23, 21]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_y3h6i")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_kscuc"]
+resource_name = "alien_hurt_7"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [25, 27]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_2384m")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_mov43"]
+resource_name = "alien_hurt_8"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [29, 31]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_2384m")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_qrj5t"]
+resource_name = "alien_hurt_9"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [34, 35]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_tbtfd")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_wcdnj"]
+resource_name = "alien_walk_1"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_cocus"]
+resource_name = "alien_walk_10"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [36, 37]
+}
+
+[sub_resource type="Animation" id="Animation_j3wkv"]
+resource_name = "alien_walk_11"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43]
+}
+
+[sub_resource type="Animation" id="Animation_pe41q"]
+resource_name = "alien_walk_12"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [48, 49]
+}
+
+[sub_resource type="Animation" id="Animation_wjp2x"]
+resource_name = "alien_walk_13"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [52, 53]
+}
+
+[sub_resource type="Animation" id="Animation_cfkwr"]
+resource_name = "alien_walk_14"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [56, 57]
+}
+
+[sub_resource type="Animation" id="Animation_dmfys"]
+resource_name = "alien_walk_15"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [60, 61]
+}
+
+[sub_resource type="Animation" id="Animation_dss2y"]
+resource_name = "alien_walk_16"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [64, 65]
+}
+
+[sub_resource type="Animation" id="Animation_5hbpr"]
+resource_name = "alien_walk_17"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [68, 69]
+}
+
+[sub_resource type="Animation" id="Animation_5i1ok"]
+resource_name = "alien_walk_2"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_dbx6i"]
+resource_name = "alien_walk_3"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 10]
+}
+
+[sub_resource type="Animation" id="Animation_3l6am"]
+resource_name = "alien_walk_4"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 14]
+}
+
+[sub_resource type="Animation" id="Animation_fmk08"]
+resource_name = "alien_walk_5"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 18]
+}
+
+[sub_resource type="Animation" id="Animation_qcfmn"]
+resource_name = "alien_walk_6"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [20, 22]
+}
+
+[sub_resource type="Animation" id="Animation_17e32"]
+resource_name = "alien_walk_7"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [24, 26]
+}
+
+[sub_resource type="Animation" id="Animation_e04tg"]
+resource_name = "alien_walk_8"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [28, 30]
+}
+
+[sub_resource type="Animation" id="Animation_y7isf"]
+resource_name = "alien_walk_9"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [32, 33]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yskw"]
+_data = {
+"alien_die_1": SubResource("Animation_d7syl"),
+"alien_die_10": SubResource("Animation_hfr54"),
+"alien_die_11": SubResource("Animation_rtxs8"),
+"alien_die_12": SubResource("Animation_jadjt"),
+"alien_die_13": SubResource("Animation_8n54v"),
+"alien_die_14": SubResource("Animation_qhtgg"),
+"alien_die_15": SubResource("Animation_vepui"),
+"alien_die_16": SubResource("Animation_kqlwe"),
+"alien_die_17": SubResource("Animation_g1u42"),
+"alien_die_2": SubResource("Animation_7v2se"),
+"alien_die_3": SubResource("Animation_ll14c"),
+"alien_die_4": SubResource("Animation_e6qs5"),
+"alien_die_5": SubResource("Animation_ss86i"),
+"alien_die_6": SubResource("Animation_6pyxi"),
+"alien_die_7": SubResource("Animation_a6rnm"),
+"alien_die_8": SubResource("Animation_gw5ym"),
+"alien_die_9": SubResource("Animation_ogfu5"),
+"alien_hurt_1": SubResource("Animation_hn3s0"),
+"alien_hurt_10": SubResource("Animation_miv11"),
+"alien_hurt_11": SubResource("Animation_hbtpi"),
+"alien_hurt_12": SubResource("Animation_t5xcl"),
+"alien_hurt_13": SubResource("Animation_1rcai"),
+"alien_hurt_14": SubResource("Animation_1hn3r"),
+"alien_hurt_15": SubResource("Animation_3q2yq"),
+"alien_hurt_16": SubResource("Animation_c3o5a"),
+"alien_hurt_17": SubResource("Animation_g3rma"),
+"alien_hurt_2": SubResource("Animation_eilgc"),
+"alien_hurt_3": SubResource("Animation_sabae"),
+"alien_hurt_4": SubResource("Animation_c6bm3"),
+"alien_hurt_5": SubResource("Animation_4lh4h"),
+"alien_hurt_6": SubResource("Animation_vgbgi"),
+"alien_hurt_7": SubResource("Animation_kscuc"),
+"alien_hurt_8": SubResource("Animation_mov43"),
+"alien_hurt_9": SubResource("Animation_qrj5t"),
+"alien_walk_1": SubResource("Animation_wcdnj"),
+"alien_walk_10": SubResource("Animation_cocus"),
+"alien_walk_11": SubResource("Animation_j3wkv"),
+"alien_walk_12": SubResource("Animation_pe41q"),
+"alien_walk_13": SubResource("Animation_wjp2x"),
+"alien_walk_14": SubResource("Animation_cfkwr"),
+"alien_walk_15": SubResource("Animation_dmfys"),
+"alien_walk_16": SubResource("Animation_dss2y"),
+"alien_walk_17": SubResource("Animation_5hbpr"),
+"alien_walk_2": SubResource("Animation_5i1ok"),
+"alien_walk_3": SubResource("Animation_dbx6i"),
+"alien_walk_4": SubResource("Animation_3l6am"),
+"alien_walk_5": SubResource("Animation_fmk08"),
+"alien_walk_6": SubResource("Animation_qcfmn"),
+"alien_walk_7": SubResource("Animation_17e32"),
+"alien_walk_8": SubResource("Animation_e04tg"),
+"alien_walk_9": SubResource("Animation_y7isf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fty17"]
+size = Vector2(19, 19)
+
+[node name="Alien" type="Area2D" groups=["enemies"]]
+z_index = 13
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_771lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.75)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_eu6o6")
+hframes = 8
+vframes = 9
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 576)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6w6ds"),
+"alien": SubResource("AnimationLibrary_6yskw")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fty17")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

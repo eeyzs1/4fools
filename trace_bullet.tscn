@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs8xo6w5u2oar"]
+
+[ext_resource type="Script" path="res://trace_bullet.gd" id="1_6qiq3"]
+[ext_resource type="Texture2D" uid="uid://b2k5tph7ymbff" path="res://asset/weapon/bullet/1.png" id="3_dq2sj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuit5"]
+size = Vector2(20, 10)
+
+[node name="TraceBullet" type="Area2D" groups=["bullets"]]
+position = Vector2(216, 152)
+collision_layer = 0
+collision_mask = 2147483659
+script = ExtResource("1_6qiq3")
+
+[node name="Img" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -5.0
+offset_right = 10.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dq2sj")
+expand_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tuit5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

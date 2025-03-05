@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsfj6jb3a8ebq"]
+
+[ext_resource type="Shader" uid="uid://xlgkxlfoohr5" path="res://shader/clip_item_mask_shader.tres" id="1_6mryh"]
+[ext_resource type="Script" path="res://GUI/owned_item_panel.gd" id="1_u0f24"]
+[ext_resource type="Texture2D" uid="uid://do6u0q0lct6oi" path="res://items/asset/attr/ConstrainedBullet.png" id="2_8qwc8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jyhi"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kx17f"]
+resource_local_to_scene = true
+shader = ExtResource("1_6mryh")
+shader_parameter/min_uv = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mm7pn"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="OwnedItemPanel" type="Panel"]
+offset_left = 8.0
+offset_top = 257.0
+offset_right = 344.0
+offset_bottom = 352.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jyhi")
+script = ExtResource("1_u0f24")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="OwnedItemContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 4
+columns = 8
+
+[node name="OwnedItemWindow" type="TextureRect" parent="ScrollContainer/OwnedItemContainer"]
+visible = false
+material = SubResource("ShaderMaterial_kx17f")
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("2_8qwc8")
+expand_mode = 2
+
+[node name="Num" type="Label" parent="ScrollContainer/OwnedItemContainer/OwnedItemWindow"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 25.0
+offset_right = 36.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ItemDetailPanel" type="Panel" parent="ScrollContainer/OwnedItemContainer/OwnedItemWindow"]
+visible = false
+z_index = 30
+z_as_relative = false
+layout_mode = 0
+offset_top = -80.0
+offset_right = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mm7pn")
+
+[node name="ItemDetail" type="VBoxContainer" parent="ScrollContainer/OwnedItemContainer/OwnedItemWindow/ItemDetailPanel"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 50.0
+theme_override_constants/separation = -1
+
+[node name="OverviewBox" type="HBoxContainer" parent="ScrollContainer/OwnedItemContainer/OwnedItemWindow/ItemDetailPanel/ItemDetail"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ItemTexture" type="TextureRect" parent="ScrollContainer/OwnedItemContainer/OwnedItemWindow/ItemDetailPanel/ItemDetail/OverviewBox"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="ItemName" type="Label" parent="ScrollContainer/OwnedItemContainer/OwnedItemWindow/ItemDetailPanel/ItemDetail/OverviewBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 6
+text = "K_ATK_INTVL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AttrBox" type="VBoxContainer" parent="ScrollContainer/OwnedItemContainer/OwnedItemWindow/ItemDetailPanel/ItemDetail"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="ItemAttrText" type="RichTextLabel" parent="ScrollContainer/OwnedItemContainer/OwnedItemWindow/ItemDetailPanel/ItemDetail/AttrBox"]
+custom_minimum_size = Vector2(80, 10)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+fit_content = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://baod6fkxnip05"
+path="res://.godot/imported/Knight In A Tavern.ogg-c11e5f2096c2ad7b6dccaa1f14aa66e1.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/market/Knight In A Tavern.ogg"
+dest_files=["res://.godot/imported/Knight In A Tavern.ogg-c11e5f2096c2ad7b6dccaa1f14aa66e1.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

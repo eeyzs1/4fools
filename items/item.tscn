@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpp6qhv2v3qoc"]
+
+[ext_resource type="Script" path="res://items/Item.gd" id="1_n2jpe"]
+[ext_resource type="Texture2D" uid="uid://c55gwqiw6jkuu" path="res://items/asset/bounty.png" id="2_rt41p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0lu3"]
+radius = 8.0
+
+[node name="Item" type="Area2D" groups=["items"]]
+collision_layer = 32
+collision_mask = 64
+script = ExtResource("1_n2jpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.68434e-14)
+shape = SubResource("CircleShape2D_u0lu3")
+
+[node name="img" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rt41p")
+expand_mode = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

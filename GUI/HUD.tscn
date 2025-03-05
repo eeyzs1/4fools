@@ -1,0 +1,171 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1kcepm4yd0oa"]
+
+[ext_resource type="Script" path="res://GUI/HUD.gd" id="1_rek20"]
+[ext_resource type="Texture2D" uid="uid://c55gwqiw6jkuu" path="res://items/asset/bounty.png" id="3_aaaje"]
+[ext_resource type="Texture2D" uid="uid://boi06dm5hpqro" path="res://asset/lv_plus.png" id="3_v8c3q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf532"]
+content_margin_left = 0.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 1, 0, 1)
+
+[node name="HUD" type="CanvasLayer" groups=["huds"]]
+process_mode = 1
+script = ExtResource("1_rek20")
+
+[node name="TimerLeft" type="Label" parent="."]
+offset_left = 232.0
+offset_top = 18.0
+offset_right = 272.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 12
+text = "55"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hp" type="HBoxContainer" parent="."]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 116.0
+offset_bottom = 22.0
+
+[node name="HpLabel" type="Label" parent="Hp"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_HP"
+vertical_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="Hp"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/fill = SubResource("StyleBoxFlat_rf532")
+max_value = 20000.0
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="HpValLabel" type="Label" parent="Hp/HpBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -6.0
+offset_right = 13.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "80/100"
+vertical_alignment = 1
+
+[node name="EXP" type="HBoxContainer" parent="."]
+offset_left = 16.0
+offset_top = 22.0
+offset_right = 116.0
+offset_bottom = 36.0
+
+[node name="ExpLabel" type="Label" parent="EXP"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "K_EXP"
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="EXP"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/fill = SubResource("StyleBoxFlat_rf532")
+step = 1.0
+show_percentage = false
+
+[node name="ExpValLabel" type="Label" parent="EXP/ExpBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -6.0
+offset_right = 13.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "80/100"
+vertical_alignment = 1
+
+[node name="Bounty" type="HBoxContainer" parent="."]
+offset_left = 16.0
+offset_top = 36.0
+offset_right = 116.0
+offset_bottom = 50.0
+
+[node name="BountyTexture" type="TextureRect" parent="Bounty"]
+layout_mode = 2
+texture = ExtResource("3_aaaje")
+expand_mode = 2
+
+[node name="BountyCount" type="Label" parent="Bounty"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="LvUpCount" type="HBoxContainer" parent="."]
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 116.0
+offset_bottom = 64.0
+
+[node name="LvUpTexture" type="TextureRect" parent="LvUpCount"]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+texture = ExtResource("3_v8c3q")
+expand_mode = 2
+
+[node name="LvUpCountLabel" type="Label" parent="LvUpCount"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="SP" type="HBoxContainer" parent="."]
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 116.0
+offset_bottom = 78.0
+
+[node name="SpLabel" type="Label" parent="SP"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "K_SP_USED"
+vertical_alignment = 1
+
+[node name="SpBar" type="ProgressBar" parent="SP"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 8
+theme_override_styles/fill = SubResource("StyleBoxFlat_rf532")
+max_value = 20000.0
+step = 1.0
+value = 100.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

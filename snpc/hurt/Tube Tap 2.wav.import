@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dp0eogjwfc8ka"
+path="res://.godot/imported/Tube Tap 2.wav-a949cbba5303e30c98857716e5cd42a0.sample"
+
+[deps]
+
+source_file="res://snpc/hurt/Tube Tap 2.wav"
+dest_files=["res://.godot/imported/Tube Tap 2.wav-a949cbba5303e30c98857716e5cd42a0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

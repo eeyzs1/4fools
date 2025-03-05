@@ -1,0 +1,21 @@
+[gd_resource type="Shader" format=3 uid="uid://b8lv4jel2d74s"]
+
+[resource]
+resource_local_to_scene = true
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.2.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+
+uniform vec4 bg_color:source_color = vec4(1.0,1.0,1.0,1.0);
+uniform vec2 min_uv = vec2(0.0,0.0);
+
+void fragment() {
+	bool inside_region = all(greaterThanEqual(UV, min_uv));
+	if (inside_region) {
+		vec4 tex_color = texture(TEXTURE, UV);
+		COLOR = vec4(tex_color.rgb * bg_color.rgb, tex_color.a);
+		} else {
+		COLOR = vec4(0.0, 0.0, 0.0, 0.0);
+	}
+	}
+"

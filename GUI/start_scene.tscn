@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=3 uid="uid://4fgfrssxbpg5"]
+
+[ext_resource type="Script" path="res://GUI/start_scene.gd" id="1_42f1a"]
+[ext_resource type="Texture2D" uid="uid://k6k8spheylm2" path="res://asset/bgim/Space_1.png" id="2_6h067"]
+[ext_resource type="PackedScene" uid="uid://ld6bdl0q1lvi" path="res://GUI/audio_button.tscn" id="3_e58p3"]
+[ext_resource type="PackedScene" uid="uid://c2e2ka5yy86i1" path="res://GUI/role_customization.tscn" id="5_s5iol"]
+
+[node name="StartScene" type="Node2D"]
+script = ExtResource("1_42f1a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6h067")
+expand_mode = 1
+
+[node name="EnglishButton" parent="CanvasLayer/TextureRect" instance=ExtResource("3_e58p3")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 16.0
+offset_right = 133.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 20
+text = "English"
+
+[node name="ChineseButton" parent="CanvasLayer/TextureRect" instance=ExtResource("3_e58p3")]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 16.0
+offset_right = 255.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 20
+text = "汉语"
+
+[node name="StoryButton" parent="CanvasLayer/TextureRect" instance=ExtResource("3_e58p3")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 72.0
+offset_right = 216.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 20
+text = "K_STORY_MODE"
+
+[node name="LevelButton" parent="CanvasLayer/TextureRect" instance=ExtResource("3_e58p3")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 128.0
+offset_right = 216.0
+offset_bottom = 164.0
+theme_override_font_sizes/font_size = 20
+text = "K_LEVEL_MODE"
+
+[node name="LoadGameButton" parent="CanvasLayer/TextureRect" instance=ExtResource("3_e58p3")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 184.0
+offset_right = 216.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 20
+text = "K_LOAD_GAME"
+
+[node name="SetGameButton" parent="CanvasLayer/TextureRect" instance=ExtResource("3_e58p3")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 236.0
+offset_right = 216.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 20
+text = "K_SETTINGS"
+
+[node name="ExitButton" parent="CanvasLayer/TextureRect" instance=ExtResource("3_e58p3")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 288.0
+offset_right = 216.0
+offset_bottom = 324.0
+theme_override_font_sizes/font_size = 20
+text = "K_EXIT_GAME"
+
+[node name="CreditButton" parent="CanvasLayer/TextureRect" instance=ExtResource("3_e58p3")]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 14.0
+offset_right = 600.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 20
+text = "K_CREDIT"
+
+[node name="CreditText" type="Label" parent="CanvasLayer/TextureRect/CreditButton"]
+visible = false
+layout_mode = 0
+offset_left = -48.0
+offset_top = 37.0
+offset_right = 136.0
+offset_bottom = 342.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "audio-sfx:Atelier Magicae || Ririsaurus/Riri Hinasaki,Mikiz,LeSound ,Titan Moruma,FilmCow,TomMusic,Rupert Spore,KingBedhead,SnakeF8,King Bedhead
+audio-bgm-battle:YouFulca,Fiverr,hzsoundcreator,owl-theory-music
+audio-bgm-stage:RUSTED MUSIC STUDIO,alkakrab,Eric the Funny Baron,MOMIZizm MUSiC,Sara Garrard
+Images:Evil Pumpkin Company,N30HRTGDV,Ladadori,TrulyMalicious,Maui Game Studio,Starlight Furnace,Kenney Vleugels,Unlucky Studio,Prinz Eugn, 
+aka Mark Simpson,Wenrexa,Future Millennium,PVGames,Mattis Flettner (mattflat),Screaming Brain Studios,gishadev,Sungraphica,
+https://rpgmakerwarehouse.theartofnemo.com/,https://rpgmakerwarehouse.blogspot.com/
+texture:Screaming Brain Studios
+websites:,itch.io,www.kenney.nl,craftpix.net,"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="OpButton" parent="CanvasLayer/TextureRect" instance=ExtResource("3_e58p3")]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 16.0
+offset_right = 484.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 20
+text = "K_MANUAL"
+
+[node name="ActionList" type="VBoxContainer" parent="CanvasLayer/TextureRect/OpButton"]
+visible = false
+layout_mode = 0
+offset_left = -64.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 256.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RoleCustomization" parent="." instance=ExtResource("5_s5iol")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/TextureRect/EnglishButton" to="." method="_on_english_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/ChineseButton" to="." method="_on_chinese_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/StoryButton" to="." method="_on_story_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/LevelButton" to="." method="_on_level_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/SetGameButton" to="." method="_on_set_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/OpButton" to="." method="_on_op_button_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0cxe3fo7l4a7"
+path="res://.godot/imported/Let There Be Night.ogg-766f127fa92268dd321ebc917f2f76f1.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Let There Be Night.ogg"
+dest_files=["res://.godot/imported/Let There Be Night.ogg-766f127fa92268dd321ebc917f2f76f1.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

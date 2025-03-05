@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv0ho6b4jji4l"]
+
+[ext_resource type="Script" path="res://GUI/audio_button.gd" id="1_247wg"]
+[ext_resource type="Shader" uid="uid://xlgkxlfoohr5" path="res://shader/clip_mask.tres" id="1_uqhkk"]
+[ext_resource type="Shader" uid="uid://b8lv4jel2d74s" path="res://shader/ow_bg.tres" id="2_m7ccc"]
+[ext_resource type="PackedScene" uid="uid://ld6bdl0q1lvi" path="res://GUI/audio_button.tscn" id="2_n1dne"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_upwy0"]
+resource_local_to_scene = true
+shader = ExtResource("1_uqhkk")
+shader_parameter/min_uv = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_obcvf"]
+resource_local_to_scene = true
+shader = ExtResource("2_m7ccc")
+shader_parameter/bg_color = Color(1, 1, 1, 1)
+shader_parameter/min_uv = Vector2(0, 0)
+
+[node name="OwnedWeaponWindow" type="TextureRect"]
+material = SubResource("ShaderMaterial_upwy0")
+custom_minimum_size = Vector2(62, 50)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="OwnedWeaponButton" type="Button" parent="."]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_obcvf")
+custom_minimum_size = Vector2(62, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_247wg")
+
+[node name="WeaponPanel" type="Panel" parent="."]
+visible = false
+z_index = 30
+z_as_relative = false
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 0
+offset_top = -130.0
+offset_right = 86.0
+mouse_filter = 1
+
+[node name="WeaponDetail" type="VBoxContainer" parent="WeaponPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="OverviewBox" type="HBoxContainer" parent="WeaponPanel/WeaponDetail"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="WeaponPanel/WeaponDetail/OverviewBox"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+
+[node name="WeaponTexture" type="TextureRect" parent="WeaponPanel/WeaponDetail/OverviewBox/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="WeaponName" type="Label" parent="WeaponPanel/WeaponDetail/OverviewBox"]
+custom_minimum_size = Vector2(71, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 7
+text = "K_ATK_INTVL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AttrBox" type="VBoxContainer" parent="WeaponPanel/WeaponDetail"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="WeaponAttrText" type="RichTextLabel" parent="WeaponPanel/WeaponDetail/AttrBox"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+fit_content = true
+
+[node name="OpButton" parent="WeaponPanel/WeaponDetail" instance=ExtResource("2_n1dne")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 6
+text = "K_SYNTHESIS"

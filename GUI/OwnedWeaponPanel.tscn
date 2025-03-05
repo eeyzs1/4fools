@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfbmwgehne8ll"]
+
+[ext_resource type="Script" path="res://GUI/OwnedWeaponPanel.gd" id="1_m5aq1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik65y"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 5
+
+[node name="OwnedWeaponPanel" type="Panel"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -104.0
+offset_right = 225.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ik65y")
+script = ExtResource("1_m5aq1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+clip_contents = false
+layout_mode = 2
+offset_right = 200.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="OwnedWeaponContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 2
+columns = 3

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://baqbqimln5xhy"
+
+[deps]
+
+files=["res://stages_ends.en.translation", "res://stages_ends.chn.translation"]
+
+source_file="res://stages_ends.csv"
+dest_files=["res://stages_ends.en.translation", "res://stages_ends.chn.translation"]
+
+[params]
+
+compress=true
+delimiter=0

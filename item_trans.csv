@@ -1,0 +1,171 @@
+﻿KEYS,en,chn
+LIGHT_ORE,Light Ore,轻矿石
+HEAVY_ORE,Heavy Ore,重矿石
+SFC,Starfall Crystal,星陨晶
+VL_STONE,Void Luminescent Stone,虚空辉石
+CS_ORE,Chrono Secret Ore,时光秘矿
+ISDI,Interstellar Dark Iron,星际玄铁
+IBD,Illusionary Blue Diamond,幻域蓝钻
+QT_CC,Quantum Crystal Cluster,量子晶簇
+LMM,Latent Matter Mine,隐物质矿
+SS_ORE,Spiritual Ore,灵矿
+IF_ORE,Ironfire Ore,铁火矿
+PC_ORE,Primitive Crystal Ore,原始结晶
+ISIS,Interstellar Inferno Stone,星际炎石
+VFC,Void Flame Crystal,虚空焰晶
+SC_LAPIS,Star Core Lapis,星核琉璃
+ATM_ORE,Antimatter Ore,反物质矿
+PR_IRON,Photon Refined Iron,光子精铁
+BH_SD,Black Hole Stardust,黑洞星尘
+STRT,Spacetime Rift Stone,时空裂石
+SF_IRON,Star Fantasy Iron,星辰幻铁
+DCC,Dimensional Crystal Core,维度晶核
+VS_JADE,Void Spiritual Jade,虚空灵玉
+SRS_ORE,Starrealm Silver Ore,星界银矿
+ITS_AMB,Interstellar Amber,星际琥珀
+SHADOW_ORE,Shadow Ore,幽影矿
+SDC,Star Divine Crystal,星辰玄晶
+SL_STONE,Streaming Light Stone,流光石
+ECT_OB,Enchanted Obsidian,着魔黑曜石
+SOLID_CO,Solid Crystal Ore,坚晶矿
+SYN_ORE,Synthetic Ore,合成矿石
+DC,Darkness Crystal,暗晶
+EC,Earth Crystal, 地晶
+FC,Fire Crystal,火晶
+IC,Ice Crystal,冰晶
+LC,Light Crystal,光晶
+TC,Thunder Crystal,雷晶
+WTC,Water Crystal,水晶
+WDC,Wind Crystal,风晶
+,,
+ANT_SCROLL,Ancient scroll,古代卷轴
+ANT_TAB,Ancient tablet,古代石板
+ANT_RUNE,Ancient runes,古代符文
+GENE_DRUG,Gene drug,基因药剂
+ANT_BOOK,Ancient book,古代书籍
+MEM_CRYSTAL,Memory Crystallization,记忆结晶
+ALT_TOE,Alienated toe,异化脚趾
+ALT_TOOTH,Alienated tooth,异化牙齿
+ALT_HEAD,Alienated head,异化头颅
+DIARY,Diary of the unknown,未知者的日记
+LOG,Experimental log,实验日志
+EXP_DEV,Experimental device,实验装置
+,,
+AME,Antimatter Energy,反物质能
+BIE,Bioenergy,生物能源
+BHE,BlackHole Energy,黑洞能源
+CHE,Chaos Energy,混沌能源
+DE,Dark Energy,暗能量
+FISE,Fission Energy,裂变能源
+FUSE,Fusion Energy,聚变能源
+QTE,Quantum Energy,量子能源
+PME,Primary Energy,原始能源
+FVE,Forever Energy,永恒能源
+,,
+MDB,Matrix Decoding Box,矩阵解码箱
+BKB,Black Box,黑匣子
+SPJ,Secret protection jar,护秘罐
+TPH,Temporal Hoard,时域秘藏
+AMV,Alien Mystery Vessel,异族秘皿
+NIB,Neutral Info Box,中立情报箱
+SIB,Spy Intelligence Box,间谍情报箱
+,,
+ETTB,Enlightenment,启迪
+FPCB,Firepower Control,火力控制
+BMB,Battle Mobility,战斗机动
+BCB,Battle Concealment,战斗隐蔽
+BSB,Battle Strike,战斗闪击
+ETB,Explosion Theory,爆炸理论
+BDB,Battle Defense,战斗防御
+MTB,MIRV Tech,分弹头技术
+RTB,Ricochet Tech,跳弹技术
+PGTB,Precision Guided Tech,精确制导
+RDB,Religious Deceptions,宗教忽悠学
+RSB,Religious Successes,宗教成功学
+HVSL,Harvest Scroll,收获卷轴
+SCSL,Sagacity Scroll,睿智卷轴
+SBSL,Sobriety Scroll,冷静卷轴
+,,
+WMSL,Wisdom Scroll,智慧卷轴
+STSL,Sescret Scroll,机密卷轴
+FYSL,Fury Scroll,暴怒卷轴
+SSSL,Static Stagnation Scroll,静滞卷轴
+EGSL,Evergreen Scroll,长青卷轴
+ODSL,Overload Scroll,超载卷轴
+FFSL,Flight Feather Scroll,飞羽卷轴
+,,
+MTBG,Maintenance Bag,维修背包
+CPHK,Capture Hook,捕获钩
+ALPU,Auxiliary Processor,辅助处理器
+BTAZ,Battle Analyzer,战斗分析器
+STAM,Strengthen Armor,加强护甲
+FBAM,Flexible Armor,柔性护甲
+EMEM,Extra Memory,额外内存
+ASSS,Atmosphere Sensor,氛围感应器
+BNRR,Brain Radiator,脑部散热器
+SVCT,Survival Conduct,维生管道
+EQCP,EQ Chip,情商芯片
+EPEE,Electronic Prosthetic Eye,电子义眼
+DLST,Double Layer Structure,双层结构
+ASAC,Analysis Accelerator,分析加速器
+MPAZ,Multiple Analyzer,多重分析器
+SGTD,Single Thread,单线程
+,,
+EGR,Energy Gathering Ring,聚能环
+SPBT,Split Bullet,分裂弹
+STBT,Shuttle Bullet,穿梭弹
+LBB,Lamp Bulb,灯泡
+CTPS,Cutting Pliers,切割钳
+BKE,Backup Energy,备用能源
+PTBT,Penetrating Bullet,贯穿弹
+HEBT,High-energy Bullet,高能弹
+CDBT,Constrained Bullet,约束弹
+ETPP,Energy Transmission Pipeline,能量传输管道
+TG,Transmission Gear,传动齿轮
+ECB,Energy Cable,能源缆线
+EPF,Electronic Perfume,电子香水
+,,
+VPBP,VIP Breastpiece,贵宾胸牌
+ASOW,Ancient Scroll of Wandering,游方古卷
+OBEE,Observation Eye,观察眼
+LDB,Load Balancer,负载均衡器
+MMA,Memory Alloy,记忆合金
+WKOB,Weakness Observer,弱点观察器
+ATRP,Automatic Repairer,自动维修者
+TLP,Teleprompter,提词器
+MDEH,Multidimensional Enhancer,多维强化器
+LBT,Lubricant Tube,润滑剂管
+,,
+WEAPON1,Crocodile Head,鳄头
+WEAPON2,Void Cannon,虚空炮
+WEAPON3,Conflict,冲突
+WEAPON4,Crusher Cannon,粉碎炮
+WEAPON5,Impact Cannon,冲击炮
+WEAPON6,Laser Cannon,镭射炮
+WEAPON7,Missile Cluster,飞弹集群
+WEAPON8,Sharp Blade,利刃
+WEAPON9,Temperature,温度
+WEAPON10,Break Through,突破
+WEAPON11,Corrugated Cannon,波纹炮
+WEAPON12,Green Root,绿根
+WEAPON13,Antimatter Cannon,反物质炮
+WEAPON14,Lava,熔岩
+WEAPON15,Shadow Rock,影岩
+WEAPON16,Convergence Cannon,汇聚炮
+WEAPON17,Scatterer Cannon, 散射炮
+WEAPON18,Annihilation Cannon,歼灭炮
+WEAPON19,Shock Cannon,震荡炮
+WEAPON20,Harpoon,鱼叉
+WEAPON21,Flying blade,飞刃
+WEAPON22,Mag-Rail Cannon,磁轨炮
+WEAPON23,Space Ripper,裂空器
+WEAPON24,Particle Cannon,粒子炮
+WEAPON25,Square Cannon,四方炮
+WEAPON26,Mag-Crusher,磁裂炮
+WEAPON27,Head-Butt,头槌
+WEAPON28,Void Wave,虚空波
+WEAPON29,Beam Cannon,光束炮
+WEAPON30,Imperial Defense Cannon,帝国防卫炮
+WEAPON31,Imperial Assault Cannon,帝国突击炮
+WEAPON32,Spacebreaker Cannon,裂空炮
+WEAPON33,Star Flash Cannon,星闪炮

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7dnibexxdye6"]
+
+[ext_resource type="Shader" path="res://shader/weapon.gdshader" id="1_rup6o"]
+[ext_resource type="Script" path="res://weapon.gd" id="1_uuuxq"]
+[ext_resource type="Texture2D" uid="uid://dcokr1py5w57i" path="res://asset/weapon/1.png" id="3_nq0yv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o56fd"]
+resource_local_to_scene = true
+radius = 100.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0sslg"]
+resource_local_to_scene = true
+shader = ExtResource("1_rup6o")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 20.0
+
+[node name="Weapon" type="Area2D"]
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("1_uuuxq")
+
+[node name="AttackChecker" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o56fd")
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0sslg")
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_nq0yv")
+
+[node name="ShootPosition" type="Marker2D" parent="."]
+position = Vector2(11, 0)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["weapons"]]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

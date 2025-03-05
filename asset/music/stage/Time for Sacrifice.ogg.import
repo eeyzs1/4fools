@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dmma85wveplfv"
+path="res://.godot/imported/Time for Sacrifice.ogg-b8f53973ddd8eacc4bf16fcd6686ad12.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Time for Sacrifice.ogg"
+dest_files=["res://.godot/imported/Time for Sacrifice.ogg-b8f53973ddd8eacc4bf16fcd6686ad12.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

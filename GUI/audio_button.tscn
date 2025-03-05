@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ld6bdl0q1lvi"]
+
+[ext_resource type="StyleBox" uid="uid://bo1rlnaqnu4w0" path="res://GUI/audio_button_black.tres" id="1_eqd7y"]
+[ext_resource type="Script" path="res://GUI/audio_button.gd" id="1_g8f72"]
+[ext_resource type="StyleBox" uid="uid://k00qvi0t58fi" path="res://GUI/audio_button_blue.tres" id="1_uxf7l"]
+[ext_resource type="StyleBox" uid="uid://2jh3j3jdvx82" path="res://GUI/audio_button_green.tres" id="2_ymvvf"]
+
+[node name="AudioButton" type="Button"]
+offset_right = 88.0
+offset_bottom = 40.0
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = ExtResource("2_ymvvf")
+theme_override_styles/pressed = ExtResource("1_uxf7l")
+theme_override_styles/normal = ExtResource("1_eqd7y")
+script = ExtResource("1_g8f72")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

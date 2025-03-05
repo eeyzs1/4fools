@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dewfh7hxbeskc"
+path="res://.godot/imported/22LR Spray WAV.wav-82b226bdd24644cdbf3afd54bdc2601b.sample"
+
+[deps]
+
+source_file="res://snpc/sat/22LR Spray WAV.wav"
+dest_files=["res://.godot/imported/22LR Spray WAV.wav-82b226bdd24644cdbf3afd54bdc2601b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

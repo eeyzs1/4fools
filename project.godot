@@ -1,0 +1,112 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="4fools"
+run/main_scene="res://GUI/start_scene.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://asset/ends/0-TheFool.png"
+config/icon="res://asset/cursor.png"
+config/windows_native_icon="res://icon.ico"
+boot_splash/minimum_display_time=1000
+
+[autoload]
+
+Setting="*res://globals/setting.gd"
+Controller="*res://globals/controller.tscn"
+Playerstats="*res://globals/playerstats.gd"
+WeaponSetting="*res://globals/weapon_setting.gd"
+Gamerecord="*res://globals/gamerecord.gd"
+NpcSettings="*res://globals/npc_settings.gd"
+Transcripts="*res://globals/transcripts.gd"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+
+[dotnet]
+
+project/assembly_name="Dodge"
+
+[input]
+
+move_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+move_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+]
+}
+move_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+move_down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
+shoot={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+sp={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+stage_next={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+stage_back={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translation.chn.translation", "res://translation.en.translation", "res://item_trans.chn.translation", "res://item_trans.en.translation", "res://stages.chn.translation", "res://stages.en.translation", "res://stages_ends.chn.translation", "res://stages_ends.en.translation", "res://names.chn.translation", "res://names.en.translation")
+
+[layer_names]
+
+2d_render/layer_1="physic layer"
+2d_render/layer_2="hurt player layer"
+2d_render/layer_3="player hit layer"
+2d_render/layer_4="hurt enemy layer"
+2d_render/layer_5="enemy hit layer"
+2d_physics/layer_2="hurt player layer"
+2d_physics/layer_3="player hit layer"
+2d_physics/layer_4="hurt enemy layer"
+2d_physics/layer_5="enemy hit layer"
+2d_physics/layer_6="item pick layer"
+2d_physics/layer_7="item collect layer"
+2d_physics/layer_32="bullet free layer"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

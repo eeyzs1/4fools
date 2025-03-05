@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://q3mnrj546n0j"
+path="res://.godot/imported/Ancient Woods.ogg-573f546be95b02111436b5268e760bcd.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/music/stage/Ancient Woods.ogg"
+dest_files=["res://.godot/imported/Ancient Woods.ogg-573f546be95b02111436b5268e760bcd.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

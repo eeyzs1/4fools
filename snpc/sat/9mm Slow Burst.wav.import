@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnwwf45yqwfuy"
+path="res://.godot/imported/9mm Slow Burst.wav-355dd7444adef6e8e17dc76a7b05de56.sample"
+
+[deps]
+
+source_file="res://snpc/sat/9mm Slow Burst.wav"
+dest_files=["res://.godot/imported/9mm Slow Burst.wav-355dd7444adef6e8e17dc76a7b05de56.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
