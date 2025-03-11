@@ -350,6 +350,13 @@ func start_game():
 	Setting.next_stage_index = 1
 	show_stage()
 
+func show_stage():
+	Setting.stage_index = Setting.next_stage_index
+	Setting.line_index = 0
+	Setting.scenario_index = 0
+	stage.show()
+	stage.init()
+
 func back_to_main():
 	if get_tree().paused:
 		pause.hide()
@@ -359,6 +366,8 @@ func back_to_main():
 		battle_start = false
 		player.hide()
 		clean_battlefield()
+	if game_start:
+		game_start = false
 	init()
 	main_scene.canvas_layer.show()
 
@@ -492,13 +501,6 @@ func market_end():
 		launch_level()
 	else:
 		show_stage()
-
-func show_stage():
-	Setting.stage_index = Setting.next_stage_index
-	Setting.line_index = 0
-	Setting.scenario_index = 0
-	stage.show()
-	stage.init()
 
 func restart_battle():
 	clean_battlefield()

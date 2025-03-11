@@ -26,6 +26,7 @@ func init():
 		Setting.next_stage_index = stage_info[Setting.stage_index]["next_stage_index"]
 	Setting.need_battle = false
 	Setting.battle_field = null
+	Setting.made_choices = []
 
 func _unhandled_input(event: InputEvent):
 	if self.visible and not choosing:

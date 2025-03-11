@@ -13,3 +13,4 @@ When I was developing this game, I was in a very bad state and the final product
 - The packing of steam version need godotsteam, which is a godot version already compiled with steam sdk embedded or you may have to compile the steam sdk with godot together
 - The packing of epic verison I was used a plugin called epic-online-services-godot, or you can follow the requirements by EPIC to do...
 - For achivevment part, check summary.gd and init()
+- when export with steam, ensure choose the corresponding customized template
