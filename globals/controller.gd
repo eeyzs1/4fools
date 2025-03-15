@@ -39,6 +39,8 @@ var is_on_steam: bool = false
 var steam_connected:bool = false
 var epic_local_user_id = ""
 var epic_product_user_id = ""
+var epic_pause:bool = false
+var is_on_epic:bool = false
 
 var fa
 
@@ -106,6 +108,7 @@ func init():
 			#IEOS.achievements_interface_achievements_unlocked_v2_callback.connect(_on_achievements_interface_achievements_unlocked_v2_callback)
 			#IEOS.achievements_interface_unlock_achievements_callback.connect(_on_achievements_interface_unlock_achievements_callback)
 			#IEOS.connect_interface_login_callback.connect(_on_connect_interface_login_callback)
+			#IEOS.ui_interface_display_settings_updated_callback.connect(_notification)
 			#var init_retry_count = 10
 			#while not EOS.is_success(init_res) and init_retry_count > 0:
 				#init_res = EOS.Platform.PlatformInterface.initialize(init_opts)
@@ -177,6 +180,7 @@ func init():
 #
 #func _on_connect_interface_login_callback(data: Dictionary):
 	#epic_local_user_id = data.local_user_id
+	#is_on_epic = true
 	#if data.continuance_token:
 		#var ctw = data.continuance_token
 		## Create user
@@ -201,6 +205,8 @@ func init():
 func _process(delta: float) -> void:
 	if is_on_steam:
 		Steam.run_callbacks()
+	#if is_on_epic:
+	#	IEOS.tick()
 
 func exit_game():
 	if Engine.has_singleton("Steam"):
@@ -266,6 +272,18 @@ func _notification(what: int) -> void:
 			if get_tree().paused:
 				pause.hide()
 				get_tree().paused = false
+		# {"is_exclusive_input": true, "is_visible": _}:
+		# 	if battle_start and not get_tree().paused:
+		# 		epic_pause = true
+		# 		game_pause()
+		# 		pause.show()
+		# 		pause.init()
+		# #will also pause the callback from epic, so cant use below code
+		# {"is_exclusive_input": false, "is_visible": false}:
+		# 	if battle_start and get_tree().paused and epic_pause:
+		# 		epic_pause = false
+		# 		pause.hide()
+		# 		game_unpause()
 
 func continue_game():
 	get_tree().paused = false
