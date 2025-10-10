@@ -27,10 +27,10 @@ func init() -> void:
 
 func choose_record(index) -> void:
 	if record_index != null:
-		var previous_record = record_list.get_children()[Gamerecord.find_list_index(record_index)]
+		var previous_record = record_list.get_children()[Gamerecord.find_list_index(record_index)+1]
 		previous_record["self_modulate"] = Color8(255,255,255,125)
 	record_index = index
-	var target_record = record_list.get_children()[Gamerecord.find_list_index(record_index)]
+	var target_record = record_list.get_children()[Gamerecord.find_list_index(record_index)+1]
 	target_record["self_modulate"] = Color8(255,255,255,255)
 
 func _on_quick_save_game_button_pressed() -> void:
@@ -65,7 +65,7 @@ func _on_save_game_button_pressed() -> void:
 	if not record_index:
 		record_index = Gamerecord.records_info[0]["record_index"]
 	var index = Gamerecord.update_record(record_index)
-	var target_record = record_list.get_children()[index]
+	var target_record = record_list.get_children()[index + 1]
 	var record_info = Gamerecord.records_info[index]
 	if record_info["level_mode"]:
 		target_record.get_node("RecordDesc").text = tr("K_LEVEL_MODE")+str(record_info["level_mode"]) \
@@ -74,6 +74,7 @@ func _on_save_game_button_pressed() -> void:
 		target_record.get_node("RecordDesc").text = tr("K_LV")+str(record_info["role_lv"]) + " " \
 		+ tr(record_info["role_name"]) + "\n" + record_info["date"]
 	target_record.get_node("RoleAvatar").texture = load(record_info["avatar"])
+	target_record["self_modulate"] = Color8(255,255,255,125)
 	record_index = null
 
 func _on_load_game_button_pressed() -> void:
