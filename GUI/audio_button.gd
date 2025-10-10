@@ -11,6 +11,5 @@ func _on_focus_entered():
 func _on_button_down():
 	Controller.play_ui_click_sound()
 
-
 func _on_mouse_entered():
 	Controller.play_ui_click_sound()

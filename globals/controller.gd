@@ -42,7 +42,8 @@ var epic_product_user_id = ""
 var epic_pause:bool = false
 var is_on_epic:bool = false
 
-var fa
+#var fa
+var lose_focus_pause = false
 
 func _ready():
 	#todo, remember to change scene form srart scene
@@ -83,11 +84,11 @@ func init():
 				is_on_steam = true
 				var error : int = Steam.current_stats_received.connect(_on_current_stats_received)
 				var error2 : int = Steam.overlay_toggled.connect(_on_steam_overlay_toggled)
-				fa = FileAccess.open("user://test/test.json", FileAccess.WRITE)
-				var json_string = JSON.stringify({"error": error, "error2":error2}, "\t")
-				fa.store_line(json_string)
-				fa.flush()
 				if not Steam.requestCurrentStats():
+					#fa = FileAccess.open("user://test/test.json", FileAccess.WRITE)
+					#var json_string = JSON.stringify({"error": error, "error2":error2}, "\t")
+					#fa.store_line(json_string)
+					#fa.flush()
 					steam_connected = false
 #
 	#if Engine.has_singleton("IEOS"):
@@ -224,15 +225,15 @@ func _on_current_stats_received(game: int, result: bool, user: int) -> void:
 
 func _on_steam_overlay_toggled(toggled:bool,user_initiated:bool,app_id:int):
 	var json_string = JSON.stringify({"toggled": toggled, "user_initiated":user_initiated, "app_id":app_id}, "\t")
-	fa.store_line(json_string)
-	fa.flush()
+	#fa.store_line(json_string)
+	#fa.flush()
 	if toggled and battle_start:
 		get_tree().paused = true
 		pause.show()
 		pause.init()
 	elif get_tree().paused:
-			pause.hide()
-			get_tree().paused = false
+		pause.hide()
+		get_tree().paused = false
 
 func save_window_size():
 	update_window_size()
@@ -253,25 +254,32 @@ func update_window_size():
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and battle_start:
-		if get_tree().paused:
-			pause.hide()
-			get_tree().paused = false
-		else:
+		if not get_tree().paused:
 			get_tree().paused = true
 			pause.show()
-			pause.init()
+		else:
+			if settings.visible:
+				settings_back()
+			elif load_save.visible:
+				load_save_back()
+			else:
+				pause.init()
+				pause.hide()
+				get_tree().paused = false
 
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
 			if battle_start and not get_tree().paused:
+				lose_focus_pause = true
 				get_tree().paused = true
 				pause.show()
 				pause.init()
 		NOTIFICATION_APPLICATION_FOCUS_IN:
-			if get_tree().paused:
+			if lose_focus_pause:
 				pause.hide()
 				get_tree().paused = false
+				lose_focus_pause = false
 		# {"is_exclusive_input": true, "is_visible": _}:
 		# 	if battle_start and not get_tree().paused:
 		# 		epic_pause = true
@@ -295,9 +303,6 @@ func load_save_game():
 
 func load_save_back():
 	load_save.hide()
-	if get_tree().paused:
-		pause.hide()
-		get_tree().paused = false
 	if !game_start and !battle_start:
 		main_scene.canvas_layer.show()
 	elif battle_start:
@@ -315,9 +320,6 @@ func show_settings():
 func settings_back():
 	Setting.save_config()
 	settings.hide()
-	if get_tree().paused:
-		pause.hide()
-		get_tree().paused = false
 	if !game_start and !battle_start:
 		main_scene.canvas_layer.show()
 	elif battle_start:

@@ -1,6 +1,5 @@
 extends Node
 
-
 @export var records_info:Array
 
 func _ready() -> void:

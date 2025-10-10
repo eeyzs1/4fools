@@ -24,22 +24,17 @@ func hide_detail(attr_detail):
 func _on_exit_button_pressed() -> void:
 	Controller.exit_game()
 
-
 func _on_continue_button_pressed() -> void:
 	Controller.continue_game()
-
 
 func _on_back_main_button_pressed() -> void:
 	Controller.back_to_main()
 
-
 func _on_restart_button_pressed() -> void:
 	Controller.restart_battle()
 
-
 func _on_sl_button_pressed() -> void:
 	Controller.load_save_game()
-
 
 func _on_setting_button_pressed() -> void:
 	Controller.show_settings()

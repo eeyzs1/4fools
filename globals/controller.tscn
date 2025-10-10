@@ -31,8 +31,6 @@ stream = ExtResource("2_8sqgq")
 [node name="UIClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_skpr3")
 
-[node name="Settings" parent="." instance=ExtResource("7_lrv57")]
-
 [node name="Summary" parent="." instance=ExtResource("4_b7a1x")]
 
 [node name="HUD" parent="." instance=ExtResource("1_u6w7j")]
@@ -42,6 +40,8 @@ stream = ExtResource("3_skpr3")
 [node name="lvup" parent="." instance=ExtResource("5_rtblo")]
 
 [node name="Pause" parent="." instance=ExtResource("5_rtl5a")]
+
+[node name="Settings" parent="." instance=ExtResource("7_lrv57")]
 
 [node name="LoadSave" parent="." instance=ExtResource("6_i0b3v")]
 

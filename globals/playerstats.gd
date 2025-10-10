@@ -3,8 +3,8 @@ extends Node2D
 
 @onready var hud = Controller.hud
 
-@export var level_mode :int = 0
-@export var role_name :String
+@export var level_mode :int = 1
+@export var role_name :String = "uninitialized"
 @export var stage_index :int
 @export var K_LV :int = 1: 
 	set(val):
@@ -12,7 +12,7 @@ extends Node2D
 		K_LV = val
 
 @export var K_MAX_EXP :int = 100
-@export var K_MAX_HP :int:
+@export var K_MAX_HP :int = 100:
 	set(val):
 		K_MAX_HP = val
 		hud.hp_bar.max_value = K_MAX_HP
