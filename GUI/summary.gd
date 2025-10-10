@@ -163,16 +163,16 @@ func init(end_stage):
 	summary.text = end_stage
 	ach_img.texture = load(end_dict["ach_img"])
 	ach_img.set_flip_v(end_dict["flip"])
-	if Controller.steam_connected:
-		var achi_status = Steam.getAchievement(end_stage)
-		if achi_status['ret'] and not achi_status['achieved']:
-			var _set_achievement: bool = Steam.setAchievement(end_stage)
-			var _store_stats: bool = Steam.storeStats()
-	#if Controller.epic_product_user_id != "":
-		#var unlock_options = EOS.Achievements.UnlockAchievementsOptions.new()
-		#unlock_options.user_id = Controller.epic_product_user_id
-		#unlock_options.achievement_ids = [end_stage]
-		#EOS.Achievements.AchievementsInterface.unlock_achievements(unlock_options)
+	# if Controller.steam_connected:
+	# 	var achi_status = Steam.getAchievement(end_stage)
+	# 	if achi_status['ret'] and not achi_status['achieved']:
+	# 		var _set_achievement: bool = Steam.setAchievement(end_stage)
+	# 		var _store_stats: bool = Steam.storeStats()
+	if Controller.epic_product_user_id != "":
+		var unlock_options = EOS.Achievements.UnlockAchievementsOptions.new()
+		unlock_options.user_id = Controller.epic_product_user_id
+		unlock_options.achievement_ids = [end_stage]
+		EOS.Achievements.AchievementsInterface.unlock_achievements(unlock_options)
 
 func _on_bm_button_pressed():
 	Controller.back_to_main()

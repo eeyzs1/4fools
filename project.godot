@@ -27,6 +27,7 @@ WeaponSetting="*res://globals/weapon_setting.gd"
 Gamerecord="*res://globals/gamerecord.gd"
 NpcSettings="*res://globals/npc_settings.gd"
 Transcripts="*res://globals/transcripts.gd"
+EOSGRuntime="*res://addons/epic-online-services-godot/runtime.gd"
 
 [display]
 
@@ -40,6 +41,10 @@ window/stretch/aspect="ignore"
 [dotnet]
 
 project/assembly_name="4fools1"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/epic-online-services-godot/plugin.cfg")
 
 [input]
 
