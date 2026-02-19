@@ -1,9 +1,11 @@
 # 4fools1
 This repo stored all code of the game 4fools1, which I made it free on steam and EPIC.
 
-Currenly I was stucked by the EPIC trader info verfication for half a year due to the The EU's DSA (since 8/29/2024).
+~ Currenly I was stucked by the EPIC trader info verfication for half a year due to the The EU's DSA (since 8/29/2024).
 I will add the link to the both steam and EPIC store pages after I passed it...(2/15/2025)
 The trader info verification passed...
+link to steam: https://store.steampowered.com/app/3180460/4fools1/
+link to epic: https://store.epicgames.com/en-US/p/4fools1-0cee0a
 
 当我开发这款游戏的时候，我处于一种很糟糕的状态，做出来的成品也完全不及我的预期，所以我决定将这款游戏免费，并且将代码开源在github上
 When I was developing this game, I was in a very bad state and the final product I made did not meet my expectations. Therefore, I decided to make this game free and open source the code on GitHub
