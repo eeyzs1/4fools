@@ -62,6 +62,7 @@ func init():
 	battle_field.hide()
 	lvup.hide()
 	pause.hide()
+	load_save.init()
 	load_save.hide()
 	settings.hide()
 	hud.hide()
@@ -90,133 +91,133 @@ func init():
 	# 				#fa.store_line(json_string)
 	# 				#fa.flush()
 	# 				steam_connected = false
-
-	if Engine.has_singleton("IEOS"):
-		# -AUTH_LOGIN=unused -AUTH_PASSWORD=<password> -AUTH_TYPE=exchangecode 
-		# -epicapp=<appid> -epicenv=Prod -EpicPortal  
-		# -epicusername=<username> -epicuserid=<userid> -epiclocale=en-US 
-		# -epicsandboxid=<sandboxid> -epicdeploymentid=<deploymentid>
-		var args = OS.get_cmdline_args()
-		if args.size() > 0 and args[0].begins_with("-AUTH_LOGIN="):
-			var password = args[1].split("=")[1]
-			epic_local_user_id = args[-4].split("=")[1]
-			var init_opts = EOS.Platform.InitializeOptions.new()
-			init_opts.product_name = "4fools1"
-			init_opts.product_version = "1.58"
-			var init_res := EOS.Platform.PlatformInterface.initialize(init_opts)
-			IEOS.auth_interface_login_callback.connect(_on_auth_interface_login_callback)
-			IEOS.auth_interface_logout_callback.connect(_on_auth_interface_logout_callback)
-			IEOS.achievements_interface_achievements_unlocked_v2_callback.connect(_on_achievements_interface_achievements_unlocked_v2_callback)
-			IEOS.achievements_interface_unlock_achievements_callback.connect(_on_achievements_interface_unlock_achievements_callback)
-			IEOS.connect_interface_login_callback.connect(_on_connect_interface_login_callback)
-			IEOS.ui_interface_display_settings_updated_callback.connect(_notification)
-			var init_retry_count = 10
-			while not EOS.is_success(init_res) and init_retry_count > 0:
-				init_res = EOS.Platform.PlatformInterface.initialize(init_opts)
-				init_retry_count -= 1
-				await get_tree().create_timer(0.2).timeout
-
-			if not EOS.is_success(init_res):
-				return
-
-			# Create platform
-			var create_opts = EOS.Platform.CreateOptions.new()
-			create_opts.product_id = ""
-			create_opts.sandbox_id = args[-2].split("=")[1]
-			create_opts.deployment_id = args[5].split("=")[1]
-			create_opts.client_id = ""
-			create_opts.client_secret = ""
-			#create_opts.encryption_key = "ENCRYPTION_KEY_HERE"
-
-			# Enable Social Overlay on Windows
-			if OS.get_name() == "Windows":
-				create_opts.flags = EOS.Platform.PlatformFlags.WindowsEnableOverlayOpengl
-
-			var create_success: bool = EOS.Platform.PlatformInterface.create(create_opts)
-			var create_retry_count = 20
-			while not create_success&&create_retry_count > 0:
-				create_success = EOS.Platform.PlatformInterface.create(create_opts)
-				create_retry_count -= 1
-				await get_tree().create_timer(0.2).timeout
-			if not create_success:
-				return
-			else:
-				IEOS.auth_interface_login_callback.connect(_on_auth_interface_login_callback)
-				IEOS.auth_interface_logout_callback.connect(_on_auth_interface_logout_callback)
-
-				var credentials = EOS.Auth.Credentials.new()
-				credentials.type = EOS.Auth.LoginCredentialType.ExchangeCode
-				credentials.token = password
-
-				var login_options = EOS.Auth.LoginOptions.new()
-				login_options.credentials = credentials
-				login_options.scope_flags = EOS.Auth.ScopeFlags.BasicProfile
-				login_options.user_login_info = EOS.Connect.UserLoginInfo.new()
-				EOS.Auth.AuthInterface.login(login_options)
-
-
-func _on_auth_interface_login_callback(data: Dictionary):
-	epic_local_user_id = data.local_user_id
-	if epic_local_user_id != "":
-		var copy_user_auth_token = EOS.Auth.AuthInterface.copy_user_auth_token(EOS.Auth.CopyUserAuthTokenOptions.new(), epic_local_user_id)
-		var token = copy_user_auth_token.token
-		# Get user info of logged in user
-		var options = EOS.UserInfo.QueryUserInfoOptions.new()
-		options.local_user_id = epic_local_user_id
-		options.target_user_id = epic_local_user_id
-		EOS.UserInfo.UserInfoInterface.query_user_info(options)
-		# Connect the account to get a Product User Id from the Epic Account Id
-		connect_account(EOS.ExternalCredentialType.Epic, token.access_token)
-
-func connect_account(type: int, token = null, display_name = null):
-	var credentials = EOS.Connect.Credentials.new()
-	credentials.token = token
-	credentials.type = type
-	var login_options = EOS.Connect.LoginOptions.new()
-	login_options.credentials = credentials
-	if display_name:
-		login_options.user_login_info = EOS.Connect.UserLoginInfo.new()
-		login_options.user_login_info.display_name = display_name
-	EOS.Connect.ConnectInterface.login(login_options)
-
-func _on_connect_interface_login_callback(data: Dictionary):
-	epic_local_user_id = data.local_user_id
-	is_on_epic = true
-	if data.continuance_token:
-		var ctw = data.continuance_token
-		# Create user
-		var create_user_options = EOS.Connect.CreateUserOptions.new()
-		create_user_options.continuance_token = ctw
-		EOS.Connect.ConnectInterface.create_user(create_user_options)
-		var ret = await IEOS.connect_interface_create_user_callback
-		epic_product_user_id = ret.local_user_id
-	elif data.local_user_id != "":
-		epic_product_user_id = data.local_user_id
-
-func _on_auth_interface_logout_callback(data: Dictionary):
-	pass
-
-func _on_achievements_interface_achievements_unlocked_v2_callback(data: Dictionary):
-	pass
-
-func _on_achievements_interface_unlock_achievements_callback(data: Dictionary):
-	pass
-
-
-func _process(delta: float) -> void:
-	#if is_on_steam:
-		#Steam.run_callbacks()
-	if is_on_epic:
-		IEOS.tick()
-
+#
+	#if Engine.has_singleton("IEOS"):
+		## -AUTH_LOGIN=unused -AUTH_PASSWORD=<password> -AUTH_TYPE=exchangecode 
+		## -epicapp=<appid> -epicenv=Prod -EpicPortal  
+		## -epicusername=<username> -epicuserid=<userid> -epiclocale=en-US 
+		## -epicsandboxid=<sandboxid> -epicdeploymentid=<deploymentid>
+		#var args = OS.get_cmdline_args()
+		#if args.size() > 0 and args[0].begins_with("-AUTH_LOGIN="):
+			#var password = args[1].split("=")[1]
+			#epic_local_user_id = args[-4].split("=")[1]
+			#var init_opts = EOS.Platform.InitializeOptions.new()
+			#init_opts.product_name = "4fools1"
+			#init_opts.product_version = "1.58"
+			#var init_res := EOS.Platform.PlatformInterface.initialize(init_opts)
+			#IEOS.auth_interface_login_callback.connect(_on_auth_interface_login_callback)
+			#IEOS.auth_interface_logout_callback.connect(_on_auth_interface_logout_callback)
+			#IEOS.achievements_interface_achievements_unlocked_v2_callback.connect(_on_achievements_interface_achievements_unlocked_v2_callback)
+			#IEOS.achievements_interface_unlock_achievements_callback.connect(_on_achievements_interface_unlock_achievements_callback)
+			#IEOS.connect_interface_login_callback.connect(_on_connect_interface_login_callback)
+			#IEOS.ui_interface_display_settings_updated_callback.connect(_notification)
+			#var init_retry_count = 10
+			#while not EOS.is_success(init_res) and init_retry_count > 0:
+				#init_res = EOS.Platform.PlatformInterface.initialize(init_opts)
+				#init_retry_count -= 1
+				#await get_tree().create_timer(0.2).timeout
+#
+			#if not EOS.is_success(init_res):
+				#return
+#
+			## Create platform
+			#var create_opts = EOS.Platform.CreateOptions.new()
+			#create_opts.product_id = ""
+			#create_opts.sandbox_id = args[-2].split("=")[1]
+			#create_opts.deployment_id = args[5].split("=")[1]
+			#create_opts.client_id = ""
+			#create_opts.client_secret = ""
+			##create_opts.encryption_key = "ENCRYPTION_KEY_HERE"
+#
+			## Enable Social Overlay on Windows
+			#if OS.get_name() == "Windows":
+				#create_opts.flags = EOS.Platform.PlatformFlags.WindowsEnableOverlayOpengl
+#
+			#var create_success: bool = EOS.Platform.PlatformInterface.create(create_opts)
+			#var create_retry_count = 20
+			#while not create_success&&create_retry_count > 0:
+				#create_success = EOS.Platform.PlatformInterface.create(create_opts)
+				#create_retry_count -= 1
+				#await get_tree().create_timer(0.2).timeout
+			#if not create_success:
+				#return
+			#else:
+				#IEOS.auth_interface_login_callback.connect(_on_auth_interface_login_callback)
+				#IEOS.auth_interface_logout_callback.connect(_on_auth_interface_logout_callback)
+#
+				#var credentials = EOS.Auth.Credentials.new()
+				#credentials.type = EOS.Auth.LoginCredentialType.ExchangeCode
+				#credentials.token = password
+#
+				#var login_options = EOS.Auth.LoginOptions.new()
+				#login_options.credentials = credentials
+				#login_options.scope_flags = EOS.Auth.ScopeFlags.BasicProfile
+				#login_options.user_login_info = EOS.Connect.UserLoginInfo.new()
+				#EOS.Auth.AuthInterface.login(login_options)
+#
+#
+#func _on_auth_interface_login_callback(data: Dictionary):
+	#epic_local_user_id = data.local_user_id
+	#if epic_local_user_id != "":
+		#var copy_user_auth_token = EOS.Auth.AuthInterface.copy_user_auth_token(EOS.Auth.CopyUserAuthTokenOptions.new(), epic_local_user_id)
+		#var token = copy_user_auth_token.token
+		## Get user info of logged in user
+		#var options = EOS.UserInfo.QueryUserInfoOptions.new()
+		#options.local_user_id = epic_local_user_id
+		#options.target_user_id = epic_local_user_id
+		#EOS.UserInfo.UserInfoInterface.query_user_info(options)
+		## Connect the account to get a Product User Id from the Epic Account Id
+		#connect_account(EOS.ExternalCredentialType.Epic, token.access_token)
+#
+#func connect_account(type: int, token = null, display_name = null):
+	#var credentials = EOS.Connect.Credentials.new()
+	#credentials.token = token
+	#credentials.type = type
+	#var login_options = EOS.Connect.LoginOptions.new()
+	#login_options.credentials = credentials
+	#if display_name:
+		#login_options.user_login_info = EOS.Connect.UserLoginInfo.new()
+		#login_options.user_login_info.display_name = display_name
+	#EOS.Connect.ConnectInterface.login(login_options)
+#
+#func _on_connect_interface_login_callback(data: Dictionary):
+	#epic_local_user_id = data.local_user_id
+	#is_on_epic = true
+	#if data.continuance_token:
+		#var ctw = data.continuance_token
+		## Create user
+		#var create_user_options = EOS.Connect.CreateUserOptions.new()
+		#create_user_options.continuance_token = ctw
+		#EOS.Connect.ConnectInterface.create_user(create_user_options)
+		#var ret = await IEOS.connect_interface_create_user_callback
+		#epic_product_user_id = ret.local_user_id
+	#elif data.local_user_id != "":
+		#epic_product_user_id = data.local_user_id
+#
+#func _on_auth_interface_logout_callback(data: Dictionary):
+	#pass
+#
+#func _on_achievements_interface_achievements_unlocked_v2_callback(data: Dictionary):
+	#pass
+#
+#func _on_achievements_interface_unlock_achievements_callback(data: Dictionary):
+	#pass
+#
+#
+#func _process(delta: float) -> void:
+	##if is_on_steam:
+		##Steam.run_callbacks()
+	#if is_on_epic:
+		#IEOS.tick()
+#
 func exit_game():
 	# if Engine.has_singleton("Steam"):
 	# 	Steam.steamShutdown
-	if epic_local_user_id != "":
-		var logout_options = EOS.Auth.LogoutOptions.new()
-		logout_options.local_user_id = epic_local_user_id
-		EOS.Auth.AuthInterface.logout(logout_options)
-		await get_tree().create_timer(0.5).timeout
+	#if epic_local_user_id != "":
+		#var logout_options = EOS.Auth.LogoutOptions.new()
+		#logout_options.local_user_id = epic_local_user_id
+		#EOS.Auth.AuthInterface.logout(logout_options)
+		#await get_tree().create_timer(0.5).timeout
 	get_tree().quit() 
 
 

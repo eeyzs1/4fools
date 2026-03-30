@@ -20,7 +20,7 @@ var patience :int:
 	set(v):
 		patience = v
 		patience_bar.value = v
-		patience_label.text = str(v)
+		patience_label.text = tr("K_PATIENCE") + ": "+ str(v)
 
 func init(market_dict):
 	refresh_cost = 2

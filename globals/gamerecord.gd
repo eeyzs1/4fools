@@ -20,6 +20,7 @@ func update_record(record_index):
 	records_info[index].merge({
 		"role_lv": Playerstats.K_LV,
 		"level_mode" : Playerstats.level_mode,
+		"avatar" : Playerstats.avatar,
 		"date": Time.get_datetime_string_from_system()
 	}, true)
 	write_records_info()
